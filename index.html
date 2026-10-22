@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier de Menuiserie / ورشة النجارة - Realtime Sync</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        wood: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e1',
+                            200: '#e4d2c5',
+                            500: '#a06236',
+                            700: '#783e19',
+                            800: '#633112',
+                            900: '#48230b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', 'Cairo', sans-serif; background-color: #f8f6f0; }
+        @media print {
+            .no-print { display: none !important; }
+            .card-print { border: 1px solid #ccc !important; box-shadow: none !important; }
+        }
+        .wood-gradient { background: linear-gradient(135deg, #783e19 0%, #a06236 50%, #48230b 100%); }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body x-data="carpentryApp()" x-init="initApp()" class="text-slate-800 min-h-screen flex flex-col bg-slate-50">
+
+    <!-- HEADER -->
+    <header class="wood-gradient text-white shadow-lg no-print sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-couch text-amber-300 text-2xl"></i>
+                <div>
+                    <h1 class="font-bold text-base sm:text-lg leading-tight flex items-center gap-2">
+                        <span>Gestion d'Atelier</span>
+                        <span class="text-amber-200 text-xs sm:text-sm font-normal">| ورشة النجارة</span>
+                    </h1>
+                    
+                    <!-- Live Sync Indicator -->
+                    <div class="flex items-center gap-2 mt-0.5">
+                        <span x-show="syncStatus === 'connected'" class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                            <span class="w-2 h-2 mr-1 bg-emerald-500 rounded-full animate-pulse"></span>
+                            <span class="hidden sm:inline">Mise à jour en direct</span> / مزامنة فورية
+                        </span>
+                        <span x-show="syncStatus === 'syncing'" class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                            <i class="fa-solid fa-arrows-rotate animate-spin mr-1"></i>
+                            Synchronisation...
+                        </span>
+                        <span x-show="syncStatus === 'offline'" class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-800">
+                            <span class="w-2 h-2 mr-1 bg-rose-500 rounded-full"></span>
+                            Mode Hors Ligne / محلي
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Actions -->
+            <div class="flex items-center space-x-2">
+                <button @click="currentTab = 'calculator'" 
+                        :class="currentTab === 'calculator' ? 'bg-amber-500 text-white' : 'bg-amber-900/40 text-amber-100 hover:bg-amber-800/60'"
+                        class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span class="hidden md:inline">Calculateur / حاسبة</span>
+                </button>
+                <button @click="currentTab = 'workshop'" 
+                        :class="currentTab === 'workshop' ? 'bg-amber-500 text-white' : 'bg-amber-900/40 text-amber-100 hover:bg-amber-800/60'"
+                        class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-[#fa-list-check] fa-list-check"></i>
+                    <span class="hidden md:inline">Mode Chantier / الورشة</span>
+                </button>
+                <button @click="currentTab = 'models'" 
+                        :class="currentTab === 'models' ? 'bg-amber-500 text-white' : 'bg-amber-900/40 text-amber-100 hover:bg-amber-800/60'"
+                        class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="hidden md:inline">Modèles (<span x-text="models.length"></span>)</span>
+                </button>
+                <button @click="showConfigModal = true" class="bg-amber-900/60 text-amber-100 hover:bg-amber-800 p-2 rounded-lg text-xs transition" title="Paramètres Firebase">
+                    <i class="fa-solid fa-gear text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full pb-24 md:pb-8">
+
+        <!-- TAB 1: CALCULATOR & ORDERS (DESKTOP & MOBILE) -->
+        <div x-show="currentTab === 'calculator'" class="space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Form: Add Model To Current Order -->
+                <div class="lg:col-span-1 space-y-4 no-print">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-slate-200">
+                        <h2 class="text-base font-bold text-wood-900 mb-4 flex items-center justify-between border-b pb-2 border-slate-100">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus text-amber-600"></i>
+                                Ajouter à la commande
+                            </span>
+                            <span class="text-xs text-slate-500 font-normal">إضافة طلبية جديدة</span>
+                        </h2>
+
+                        <form @submit.prevent="addToOrder()" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">
+                                    Modèle de meuble / نموذج الأثاث:
+                                </label>
+                                <select x-model="selectedModelId" @change="onModelChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-amber-500 focus:border-amber-500">
+                                    <option value="">-- Choisir un modèle / اختر نموذجاً --</option>
+                                    <template x-for="m in models" :key="m.id">
+                                        <option :value="m.id" x-text="m.name"></option>
+                                    </template>
+                                </select>
+                            </div>
+
+                            <div x-show="selectedModel">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Dimensions / المقاسات:</label>
+                                <select x-model="selectedSizeIndex" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-amber-500 focus:border-amber-500">
+                                    <template x-for="(sizeOption, idx) in selectedModel?.sizes || []" :key="idx">
+                                        <option :value="idx" x-text="sizeOption.name + ' (' + sizeOption.dimensions + ')'"></option>
+                                    </template>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Quantité / الكمية المطلوبة:</label>
+                                <input type="number" min="1" x-model.number="orderQuantity" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+
+                            <button type="submit" 
+                                    :disabled="!selectedModelId" 
+                                    class="w-full bg-wood-700 hover:bg-wood-800 disabled:bg-slate-300 text-white font-bold py-2.5 px-4 rounded-lg transition shadow flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Ajouter au panier / إضافة للطلبية</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Selected Items List -->
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-slate-200">
+                        <div class="flex justify-between items-center mb-3 border-b pb-2 border-slate-100">
+                            <h3 class="font-bold text-sm text-slate-800">
+                                Commandes actives / الطلبيات الحالية (<span x-text="orderList.length"></span>)
+                            </h3>
+                            <button x-show="orderList.length > 0" @click="clearOrder()" class="text-xs text-rose-600 hover:text-rose-800 font-semibold">
+                                Tout effacer / مسح الكل
+                            </button>
+                        </div>
+
+                        <div x-show="orderList.length === 0" class="text-center py-6 text-slate-400 text-xs">
+                            <i class="fa-solid fa-clipboard-list text-3xl mb-2 text-slate-300"></i>
+                            <p>Aucune commande ajoutée / لا توجد طلبيات مضافة</p>
+                        </div>
+
+                        <div class="space-y-2 max-h-60 overflow-y-auto pr-1">
+                            <template x-for="(item, index) in orderList" :key="index">
+                                <div class="flex justify-between items-center p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs">
+                                    <div>
+                                        <div class="font-bold text-wood-900" x-text="item.modelName"></div>
+                                        <div class="text-slate-500 mt-0.5">
+                                            <span x-text="item.sizeName"></span> | Qté: <strong class="text-slate-800" x-text="item.quantity"></strong>
+                                        </div>
+                                    </div>
+                                    <button @click="removeFromOrder(index)" class="text-rose-500 hover:text-rose-700 p-1.5">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consolidated Cut List Table -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-slate-200 card-print">
+                        <div class="flex flex-wrap justify-between items-center mb-4 gap-3 border-b pb-3 border-slate-100">
+                            <div>
+                                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                    <i class="fa-solid fa-saw-blade text-amber-600 no-print"></i>
+                                    Liste de découpe requise / قائمة التقطيع المطلوبة
+                                </h2>
+                                <p class="text-xs text-slate-500 mt-0.5">Calcul automatique des pièces en bois en temps réel</p>
+                            </div>
+
+                            <div class="flex gap-2 no-print">
+                                <button @click="shareWhatsApp()" x-show="orderList.length > 0" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>Envoyer WhatsApp</span>
+                                </button>
+                                <button @click="printWindow()" x-show="orderList.length > 0" class="bg-slate-800 hover:bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                    <i class="fa-solid fa-print"></i>
+                                    <span>Imprimer / طباعة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div x-show="orderList.length === 0" class="text-center py-16 text-slate-400">
+                            <i class="fa-solid fa-ruler-combined text-5xl mb-3 text-slate-200"></i>
+                            <p class="text-sm font-medium">Ajoutez des modèles pour générer la liste de découpe</p>
+                        </div>
+
+                        <!-- Consolidated Cut Table -->
+                        <div x-show="orderList.length > 0">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="bg-amber-50 text-wood-900 border-b border-amber-200 text-xs font-bold">
+                                            <th class="p-3">Photo</th>
+                                            <th class="p-3">Nom de la pièce / القطعة</th>
+                                            <th class="p-3">Dimensions / القياسات</th>
+                                            <th class="p-3 text-center">Qté / Unité</th>
+                                            <th class="p-3 text-center bg-amber-100 text-wood-950 font-extrabold">Total à couper / المجموع</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                                        <template x-for="(part, pIdx) in calculatedCutList" :key="pIdx">
+                                            <tr class="hover:bg-slate-50">
+                                                <td class="p-2">
+                                                    <img :src="part.image || defaultImage" 
+                                                         @click="previewImage = part.image || defaultImage" 
+                                                         class="w-10 h-10 object-cover rounded border border-slate-200 bg-white cursor-pointer hover:opacity-80 transition">
+                                                </td>
+                                                <td class="p-3 font-semibold text-slate-800" x-text="part.partName"></td>
+                                                <td class="p-3 text-slate-600 font-mono text-xs" x-text="part.dimensions"></td>
+                                                <td class="p-3 text-center text-slate-500" x-text="part.singleQty"></td>
+                                                <td class="p-3 text-center bg-amber-50 font-bold text-wood-900 text-base" x-text="part.totalQty"></td>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mt-4 p-3 bg-slate-50 rounded-lg border border-slate-200 flex justify-between items-center text-xs text-slate-600">
+                                <span>Types de pièces : <strong x-text="calculatedCutList.length"></strong></span>
+                                <span>Total des bois à couper : <strong class="text-amber-700 text-sm" x-text="calculatedCutList.reduce((a, b) => a + b.totalQty, 0)"></strong> pièces</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: WORKSHOP FLOOR CHECKLIST (MOBILE/TABLET OPTIMIZED) -->
+        <div x-show="currentTab === 'workshop'" class="space-y-4">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <div>
+                    <h2 class="font-bold text-base text-slate-800">Mode Atelier / وضع العمال بالورشة</h2>
+                    <p class="text-xs text-slate-500">Cochez les pièces au fur et à mesure de la découpe / علم على القطع المكتملة</p>
+                </div>
+                <button @click="resetChecklist()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold">
+                    Réinitialiser les cochages
+                </button>
+            </div>
+
+            <div x-show="calculatedCutList.length === 0" class="text-center py-12 bg-white rounded-xl border p-6 text-slate-400">
+                <i class="fa-solid fa-tasks text-4xl mb-2 text-slate-300"></i>
+                <p class="text-sm">Veuillez d'abord ajouter des commandes dans l'onglet Calculateur.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <template x-for="(part, idx) in calculatedCutList" :key="idx">
+                    <div @click="toggleCheckPart(part.partName + part.dimensions)" 
+                         :class="checkedParts[part.partName + part.dimensions] ? 'bg-emerald-50 border-emerald-300' : 'bg-white border-slate-200'"
+                         class="p-4 rounded-xl border shadow-sm transition cursor-pointer flex items-center gap-3">
+                        
+                        <div :class="checkedParts[part.partName + part.dimensions] ? 'bg-emerald-600 text-white' : 'border-2 border-slate-300 bg-slate-50'" 
+                             class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 font-bold transition">
+                            <i x-show="checkedParts[part.partName + part.dimensions]" class="fa-solid fa-check text-sm"></i>
+                        </div>
+
+                        <img :src="part.image || defaultImage" class="w-12 h-12 object-cover rounded-lg border bg-white shrink-0">
+
+                        <div class="flex-1 min-w-0">
+                            <div class="font-bold text-sm truncate" :class="checkedParts[part.partName + part.dimensions] ? 'line-through text-slate-400' : 'text-slate-800'" x-text="part.partName"></div>
+                            <div class="text-xs text-slate-500 font-mono" x-text="part.dimensions"></div>
+                            <div class="mt-1 inline-block px-2 py-0.5 bg-amber-100 text-amber-900 rounded font-bold text-xs">
+                                Quantité : <span x-text="part.totalQty"></span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- TAB 3: MODELS CATALOG MANAGEMENT -->
+        <div x-show="currentTab === 'models'" class="space-y-6">
+            <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <div>
+                    <h2 class="text-base font-bold text-slate-800">Catalogue des Modèles / إدارة النماذج</h2>
+                    <p class="text-xs text-slate-500">Configurez vos modèles de canapés, tables et éléments bois</p>
+                </div>
+                <button @click="openModelModal()" class="bg-wood-700 hover:bg-wood-800 text-white px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 shadow">
+                    <i class="fa-solid fa-plus"></i>
+                    Nouveau modèle
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <template x-for="(m, mIndex) in models" :key="m.id">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between">
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2 border-b pb-2">
+                                <div>
+                                    <h3 class="font-bold text-base text-wood-900" x-text="m.name"></h3>
+                                    <p class="text-xs text-slate-500" x-text="m.description || 'Pas de description'"></p>
+                                </div>
+                                <div class="flex gap-1">
+                                    <button @click="editModel(mIndex)" class="text-amber-600 hover:bg-amber-50 p-1.5 rounded"><i class="fa-solid fa-pen"></i></button>
+                                    <button @click="deleteModel(mIndex)" class="text-rose-500 hover:bg-rose-50 p-1.5 rounded"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="text-xs font-bold text-slate-700 mb-2">Composants / قطع هذا النموذج:</div>
+                            <div class="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                                <template x-for="p in (m.sizes && m.sizes[0] ? m.sizes[0].parts : [])" :key="p.partName">
+                                    <div class="flex justify-between items-center p-2 bg-slate-50 rounded border text-xs">
+                                        <span class="font-semibold text-slate-700" x-text="p.partName"></span>
+                                        <span class="font-mono text-slate-500 text-[11px]" x-text="p.dimensions"></span>
+                                        <span class="font-bold bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded" x-text="'x' + p.qty"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM MOBILE NAVIGATION BAR -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg z-40 flex justify-around p-2">
+        <button @click="currentTab = 'calculator'" 
+                :class="currentTab === 'calculator' ? 'text-wood-700 font-bold' : 'text-slate-400'"
+                class="flex flex-col items-center gap-1 text-[10px]">
+            <i class="fa-solid fa-calculator text-lg"></i>
+            <span>Calculateur</span>
+        </button>
+        <button @click="currentTab = 'workshop'" 
+                :class="currentTab === 'workshop' ? 'text-wood-700 font-bold' : 'text-slate-400'"
+                class="flex flex-col items-center gap-1 text-[10px]">
+            <i class="fa-solid fa-list-check text-lg"></i>
+            <span>Atelier</span>
+        </button>
+        <button @click="currentTab = 'models'" 
+                :class="currentTab === 'models' ? 'text-wood-700 font-bold' : 'text-slate-400'"
+                class="flex flex-col items-center gap-1 text-[10px]">
+            <i class="fa-solid fa-boxes-stacked text-lg"></i>
+            <span>Modèles</span>
+        </button>
+    </div>
+
+    <!-- MODAL: ADD / EDIT MODEL -->
+    <div x-show="showModelModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 overflow-y-auto" x-cloak>
+        <div class="bg-white rounded-xl shadow-xl max-w-xl w-full p-5 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-base text-slate-800" x-text="isEditingModel ? 'Modifier le modèle' : 'Nouveau modèle'"></h3>
+                <button @click="showModelModal = false" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nom du modèle / اسم النموذج :</label>
+                    <input type="text" x-model="modalModel.name" placeholder="Ex: Salon Marocain 2m" class="w-full border rounded-lg p-2 text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Description / ملاحظات :</label>
+                    <input type="text" x-model="modalModel.description" placeholder="Informations complémentaires" class="w-full border rounded-lg p-2 text-xs">
+                </div>
+
+                <div class="border-t pt-3">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-xs text-slate-800">Liste des éléments en bois / قائمة القطع الخشبية :</span>
+                        <button type="button" @click="addPartToModal()" class="text-xs bg-amber-100 text-amber-900 px-2 py-1 rounded font-bold hover:bg-amber-200">+ Ajouter une pièce</button>
+                    </div>
+
+                    <div class="space-y-2">
+                        <template x-for="(part, pIdx) in modalModel.parts" :key="pIdx">
+                            <div class="p-2.5 border rounded-lg bg-slate-50 space-y-2">
+                                <div class="grid grid-cols-12 gap-2 items-center">
+                                    <div class="col-span-4">
+                                        <input type="text" x-model="part.partName" placeholder="Nom (ex: Pied)" class="w-full border rounded p-1.5 text-xs">
+                                    </div>
+                                    <div class="col-span-3">
+                                        <input type="text" x-model="part.dimensions" placeholder="Dimensions (180x8x4)" class="w-full border rounded p-1.5 text-xs">
+                                    </div>
+                                    <div class="col-span-2">
+                                        <input type="number" min="1" x-model.number="part.qty" placeholder="Qté" class="w-full border rounded p-1.5 text-xs text-center">
+                                    </div>
+                                    <div class="col-span-3 flex items-center justify-end gap-1">
+                                        <button type="button" @click="triggerFileInput(pIdx)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 px-2 py-1.5 rounded text-xs flex items-center gap-1 font-bold">
+                                            <i class="fa-solid fa-camera"></i> Photo
+                                        </button>
+                                        <button type="button" @click="modalModel.parts.splice(pIdx, 1)" class="text-rose-500 hover:text-rose-700 p-1.5"><i class="fa-solid fa-trash-can"></i></button>
+                                    </div>
+                                </div>
+                                <div x-show="part.image" class="flex items-center gap-2 pt-1 border-t border-slate-200">
+                                    <img :src="part.image" class="w-10 h-10 object-cover rounded border bg-white">
+                                    <button type="button" @click="part.image = ''" class="text-xs text-rose-500 hover:text-rose-700 font-semibold">Supprimer l'image / حذف الصورة</button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2 border-t pt-3">
+                <button @click="showModelModal = false" class="px-4 py-2 border rounded-lg text-xs">Annuler</button>
+                <button @click="saveModelModal()" class="px-4 py-2 bg-wood-700 text-white rounded-lg text-xs font-bold">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden File Input for Image Upload -->
+    <input type="file" id="globalFileInput" accept="image/*" class="hidden" @change="handleFileSelect($event)">
+
+    <!-- MODAL: FIREBASE CONFIG SETTINGS -->
+    <div x-show="showConfigModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4" x-cloak>
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-5 space-y-4">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="font-bold text-sm text-slate-800">Paramètres de synchronisation سحابة البيانات</h3>
+                <button @click="showConfigModal = false" class="text-slate-400">&times;</button>
+            </div>
+            
+            <p class="text-xs text-slate-600">
+                Ce système synchronise instantanément les modifications entre tous les téléphones et PC connectés.
+            </p>
+
+            <div class="p-3 bg-slate-50 border rounded-lg text-xs space-y-1">
+                <div class="font-bold text-slate-700">Statut actuel :</div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full" :class="syncStatus === 'connected' ? 'bg-emerald-500' : 'bg-rose-500'"></span>
+                    <span x-text="syncStatus === 'connected' ? 'Connecté en direct au Cloud' : 'Mode local hors ligne'"></span>
+                </div>
+            </div>
+
+            <div class="flex justify-end border-t pt-3">
+                <button @click="showConfigModal = false" class="px-4 py-2 bg-wood-700 text-white rounded-lg text-xs font-bold">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE PREVIEW MODAL -->
+    <div x-show="previewImage" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" @click="previewImage = null" x-cloak>
+        <div class="max-w-md w-full bg-white rounded-lg overflow-hidden p-2" @click.stop>
+            <img :src="previewImage" class="w-full max-h-[80vh] object-contain rounded">
+            <button @click="previewImage = null" class="w-full mt-2 py-2 bg-slate-800 text-white text-xs rounded font-bold">Fermer</button>
+        </div>
+    </div>
+
+    <!-- FIREBASE MODULE & ALPINE INTEGRATION -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, onSnapshot, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDemoKeyCarpentryApp2026",
+            authDomain: "carpentry-app-2026.firebaseapp.com",
+            projectId: "carpentry-app-2026",
+            storageBucket: "carpentry-app-2026.appspot.com",
+            messagingSenderId: "100000000000",
+            appId: "1:100000000000:web:carpentryapp2026"
+        };
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            window.firestoreDb = db;
+            window.firestoreCollection = collection;
+            window.firestoreOnSnapshot = onSnapshot;
+            window.firestoreDoc = doc;
+            window.firestoreSetDoc = setDoc;
+            window.dispatchEvent(new Event('firebase-ready'));
+        } catch (e) {
+            console.warn("Firebase fallback to Local Storage.");
+        }
+    </script>
+
+    <script>
+        function carpentryApp() {
+            return {
+                currentTab: 'calculator',
+                syncStatus: 'offline', // 'connected', 'syncing', 'offline'
+                models: [],
+                selectedModelId: '',
+                selectedModel: null,
+                selectedSizeIndex: 0,
+                orderQuantity: 1,
+                orderList: [],
+                checkedParts: {},
+                showModelModal: false,
+                showConfigModal: false,
+                isEditingModel: false,
+                editingModelIndex: null,
+                previewImage: null,
+                defaultImage: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>',
+                modalModel: { id: '', name: '', description: '', parts: [] },
+                activePartIndexForImage: null,
+
+                initApp() {
+                    window.addEventListener('firebase-ready', () => {
+                        this.initFirebaseRealtime();
+                    });
+
+                    setTimeout(() => {
+                        if (this.syncStatus === 'offline' && this.models.length === 0) {
+                            this.loadLocalData();
+                        }
+                    }, 1200);
+                },
+
+                initFirebaseRealtime() {
+                    try {
+                        const db = window.firestoreDb;
+                        const appId = typeof __app_id !== 'undefined' ? __app_id : 'carpentry-workshop';
+                        
+                        // Sync Models Live
+                        const modelsRef = window.firestoreDoc(db, 'artifacts', appId, 'public', 'data', 'catalog', 'modelsDoc');
+                        window.firestoreOnSnapshot(modelsRef, (docSnap) => {
+                            this.syncStatus = 'connected';
+                            if (docSnap.exists() && docSnap.data().items) {
+                                this.models = docSnap.data().items;
+                            } else {
+                                this.loadDefaults();
+                                this.syncToCloud();
+                            }
+                        }, () => { this.syncStatus = 'offline'; });
+
+                        // Sync Active Orders Live
+                        const ordersRef = window.firestoreDoc(db, 'artifacts', appId, 'public', 'data', 'orders', 'activeOrdersDoc');
+                        window.firestoreOnSnapshot(ordersRef, (docSnap) => {
+                            this.syncStatus = 'connected';
+                            if (docSnap.exists() && docSnap.data().items) {
+                                this.orderList = docSnap.data().items;
+                            }
+                        }, () => { this.syncStatus = 'offline'; });
+
+                    } catch (e) {
+                        this.syncStatus = 'offline';
+                        this.loadLocalData();
+                    }
+                },
+
+                loadLocalData() {
+                    const savedModels = localStorage.getItem('carpentry_models');
+                    const savedOrders = localStorage.getItem('carpentry_orders');
+
+                    if (savedModels) {
+                        try { this.models = JSON.parse(savedModels); } catch (e) { this.loadDefaults(); }
+                    } else {
+                        this.loadDefaults();
+                    }
+
+                    if (savedOrders) {
+                        try { this.orderList = JSON.parse(savedOrders); } catch (e) {}
+                    }
+                },
+
+                loadDefaults() {
+                    this.models = [
+                        {
+                            id: 'm1',
+                            name: 'Canapé / صالون 2M',
+                            description: 'Dimensions standard 200x80 cm',
+                            sizes: [
+                                {
+                                    name: 'Standard (200 cm)',
+                                    dimensions: '200x80 cm',
+                                    parts: [
+                                        { partName: 'Traverse principale / العارضة', dimensions: '190x8x4 cm', qty: 2, image: '' },
+                                        { partName: 'Accoudoir / المرفق', dimensions: '75x60x8 cm', qty: 2, image: '' },
+                                        { partName: 'Dossier / الظهر', dimensions: '190x50x2 cm', qty: 1, image: '' },
+                                        { partName: 'Pieds bois / أرجل خشبي', dimensions: '15x5x5 cm', qty: 4, image: '' }
+                                    ]
+                                }
+                            ]
+                        }
+                    ];
+                },
+
+                syncToCloud() {
+                    localStorage.setItem('carpentry_models', JSON.stringify(this.models));
+                    localStorage.setItem('carpentry_orders', JSON.stringify(this.orderList));
+
+                    if (this.syncStatus === 'connected' && window.firestoreDb) {
+                        const db = window.firestoreDb;
+                        const appId = typeof __app_id !== 'undefined' ? __app_id : 'carpentry-workshop';
+
+                        window.firestoreSetDoc(
+                            window.firestoreDoc(db, 'artifacts', appId, 'public', 'data', 'catalog', 'modelsDoc'),
+                            { items: this.models }
+                        );
+
+                        window.firestoreSetDoc(
+                            window.firestoreDoc(db, 'artifacts', appId, 'public', 'data', 'orders', 'activeOrdersDoc'),
+                            { items: this.orderList }
+                        );
+                    }
+                },
+
+                onModelChange() {
+                    this.selectedModel = this.models.find(m => m.id === this.selectedModelId) || null;
+                    this.selectedSizeIndex = 0;
+                },
+
+                addToOrder() {
+                    if (!this.selectedModel) return;
+                    const sizeObj = this.selectedModel.sizes[this.selectedSizeIndex];
+                    this.orderList.push({
+                        modelId: this.selectedModel.id,
+                        modelName: this.selectedModel.name,
+                        sizeName: sizeObj.name,
+                        quantity: this.orderQuantity,
+                        parts: sizeObj.parts
+                    });
+                    this.syncToCloud();
+                },
+
+                removeFromOrder(index) {
+                    this.orderList.splice(index, 1);
+                    this.syncToCloud();
+                },
+
+                clearOrder() {
+                    this.orderList = [];
+                    this.syncToCloud();
+                },
+
+                get calculatedCutList() {
+                    const map = {};
+                    this.orderList.forEach(item => {
+                        if (item.parts) {
+                            item.parts.forEach(p => {
+                                const key = p.partName + '___' + p.dimensions;
+                                if (!map[key]) {
+                                    map[key] = {
+                                        partName: p.partName,
+                                        dimensions: p.dimensions,
+                                        singleQty: p.qty,
+                                        totalQty: 0,
+                                        image: p.image
+                                    };
+                                }
+                                map[key].totalQty += (p.qty * item.quantity);
+                            });
+                        }
+                    });
+                    return Object.values(map);
+                },
+
+                toggleCheckPart(key) {
+                    this.checkedParts[key] = !this.checkedParts[key];
+                },
+
+                resetChecklist() {
+                    this.checkedParts = {};
+                },
+
+                openModelModal() {
+                    this.isEditingModel = false;
+                    this.modalModel = { id: 'm_' + Date.now(), name: '', description: '', parts: [] };
+                    this.showModelModal = true;
+                },
+
+                editModel(index) {
+                    this.isEditingModel = true;
+                    this.editingModelIndex = index;
+                    const m = this.models[index];
+                    this.modalModel = {
+                        id: m.id,
+                        name: m.name,
+                        description: m.description,
+                        parts: (m.sizes && m.sizes[0] && m.sizes[0].parts) ? JSON.parse(JSON.stringify(m.sizes[0].parts)) : []
+                    };
+                    this.showModelModal = true;
+                },
+
+                addPartToModal() {
+                    this.modalModel.parts.push({ partName: '', dimensions: '', qty: 1, image: '' });
+                },
+
+                saveModelModal() {
+                    if (!this.modalModel.name) return;
+                    const formattedModel = {
+                        id: this.modalModel.id,
+                        name: this.modalModel.name,
+                        description: this.modalModel.description,
+                        sizes: [{ name: 'Standard', dimensions: 'Standard', parts: this.modalModel.parts }]
+                    };
+
+                    if (this.isEditingModel) {
+                        this.models[this.editingModelIndex] = formattedModel;
+                    } else {
+                        this.models.push(formattedModel);
+                    }
+                    this.syncToCloud();
+                    this.showModelModal = false;
+                },
+
+                deleteModel(index) {
+                    if (confirm('Voulez-vous vraiment supprimer ce modèle ? / هل تريد حذف هذا النموذج؟')) {
+                        this.models.splice(index, 1);
+                        this.syncToCloud();
+                    }
+                },
+
+                triggerFileInput(partIndex) {
+                    this.activePartIndexForImage = partIndex;
+                    document.getElementById('globalFileInput').click();
+                },
+
+                handleFileSelect(event) {
+                    const file = event.target.files[0];
+                    if (file && this.activePartIndexForImage !== null) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            this.modalModel.parts[this.activePartIndexForImage].image = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                },
+
+                printWindow() {
+                    window.print();
+                },
+
+                shareWhatsApp() {
+                    let text = "🪵 *قائمة التقطيع - ورشة النجارة / Cut List*\n----------------------------\n";
+                    this.calculatedCutList.forEach(p => {
+                        text += `• *${p.partName}* (${p.dimensions}) : ${p.totalQty} قطعة\n`;
+                    });
+                    window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
