@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atelier de Menuiserie / ورشة النجارة</title>
+  <title>Atelier de Menuiserie /</title>
 </head>
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -23,16 +24,6 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  window.saveDataToFirebase = async function(collectionName, data) {
-    try {
-      const docRef = await addDoc(collection(db, collectionName), data);
-      alert("تم حفظ التغييرات بنجاح على السحابة!");
-      return docRef.id;
-    } catch (e) {
-      console.error("خطأ أثناء الحفظ: ", e);
-      alert("حدث خطأ أثناء حفظ التغييرات.");
-    }
-  };
 </script>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" class="h-full">
