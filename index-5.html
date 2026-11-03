@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#103b38">
+<meta name="description" content="MARIMAX — اكتشف الأرائك والأثاث المنزلي بتصاميم عصرية. تصفح المنتجات والأسعار واطلب بسهولة عبر واتساب.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="MARIMAX">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MARIMAX">
+<meta property="og:title" content="MARIMAX | أثاث منزلي أنيق وراحة لكل منزل">
+<meta property="og:description" content="اكتشف مجموعة MARIMAX من الأرائك والأثاث والديكور، واطلب بسهولة عبر واتساب.">
+<meta property="og:url" content="https://marimax-ochre.vercel.app/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://marimax-ochre.vercel.app/">
+<title>MARIMAX | الأثاث الذي يشبهك</title>
+<style>
+:root{--green:#103b38;--green2:#1c5b52;--gold:#bd8c3b;--cream:#f8f5ef;--ink:#202c2a;--muted:#737c78;--line:#e8e2d8;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Tahoma,Arial,sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.topbar{background:var(--green);color:white;padding:9px 5%;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:12px}.topbar a{font-weight:bold}.topbar .lang{border:1px solid #ffffff55;background:transparent;color:white;padding:6px 11px;border-radius:18px;cursor:pointer}.nav{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;gap:20px;box-shadow:0 3px 18px #152c2510;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:800;color:var(--green);white-space:nowrap}.brand-mark{width:43px;height:35px;border:3px solid var(--gold);border-radius:10px 10px 4px 4px;position:relative}.brand-mark:before{content:"";position:absolute;bottom:-7px;left:4px;right:4px;height:7px;border-left:3px solid var(--gold);border-right:3px solid var(--gold)}.brand small{display:block;font-size:10px;color:var(--muted);font-weight:400;letter-spacing:.4px}.navlinks{display:flex;gap:25px;font-size:14px}.navlinks a:hover{color:var(--gold)}.nav-actions{display:flex;gap:10px;align-items:center}.iconbtn{border:1px solid var(--line);background:white;border-radius:50%;width:39px;height:39px;cursor:pointer}#openAdminTop{white-space:nowrap}.cart-count{background:var(--gold);color:white;border-radius:50%;font-size:11px;padding:2px 6px;margin-inline-start:3px}.menu-btn{display:none}.hero{margin:20px auto 0;max-width:1440px;width:92%;min-height:420px;border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(13,24,21,.76),rgba(13,24,21,.22)),url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85') center/cover;color:white}.hero-content{padding:55px;max-width:560px}.eyebrow{color:#e8c98c;font-size:13px;letter-spacing:1px;font-weight:bold}.hero h1{font-size:clamp(34px,4vw,56px);line-height:1.25;margin:14px 0}.hero p{font-size:17px;line-height:1.9;color:#f1f0e9;max-width:480px}.btn{border:0;border-radius:9px;padding:13px 20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-weight:bold;transition:.2s}.btn-gold{background:var(--gold);color:white}.btn-gold:hover{background:#a9782e;transform:translateY(-1px)}.btn-outline{background:transparent;color:white;border:1px solid #ffffff90;margin-inline-start:8px}.benefits{width:92%;max-width:1300px;margin:22px auto 45px;display:grid;grid-template-columns:repeat(4,1fr);background:white;border:1px solid var(--line);border-radius:14px;padding:20px 10px}.benefit{text-align:center;padding:8px;border-inline-start:1px solid var(--line)}.benefit:last-child{border:0}.benefit .symbol{font-size:25px;color:var(--gold)}.benefit strong{display:block;margin:7px 0 4px;font-size:14px}.benefit span{font-size:12px;color:var(--muted)}.section{width:92%;max-width:1300px;margin:0 auto 60px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}.section-head h2{margin:0 0 7px;font-size:29px;color:var(--green)}.section-head p{margin:0;color:var(--muted);font-size:14px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}.filter{border:1px solid var(--line);background:white;color:var(--ink);padding:9px 15px;border-radius:22px;cursor:pointer;font-size:13px}.filter.active,.filter:hover{background:var(--green);color:white;border-color:var(--green)}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 12px 25px #183c3210}.product-img{height:225px;position:relative;background:#eee;overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.product:hover .product-img img{transform:scale(1.04)}.tag{position:absolute;top:12px;inset-inline-start:12px;background:#fff;color:var(--green);font-size:11px;padding:6px 9px;border-radius:20px}.product-body{padding:15px}.product h3{margin:0 0 7px;font-size:16px}.product .desc{font-size:12px;color:var(--muted);margin:0 0 12px;line-height:1.7}.price-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}.price{font-size:17px;font-weight:bold;color:var(--green)}.price small{font-size:11px;font-weight:400;color:var(--muted)}.product .btn{width:100%;padding:11px;font-size:13px}.about{display:grid;grid-template-columns:1fr 1fr;background:#eae4d9;border-radius:18px;overflow:hidden;min-height:300px}.about img{width:100%;height:100%;min-height:300px;object-fit:cover}.about-text{padding:40px;align-self:center}.about h2{color:var(--green);font-size:29px;margin:0 0 12px}.about p{line-height:1.9;color:#5d6863}.contact{background:var(--green);color:white;border-radius:18px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}.contact h2{margin:0 0 8px}.contact p{margin:0;color:#d8e3de;line-height:1.7}.btn-wa{background:#20b96b;color:white}.footer{background:#0a2b29;color:#d9e3df;padding:28px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;margin-top:60px}.footer small{color:#a7bbb4}.floating-wa{position:fixed;bottom:20px;inset-inline-end:20px;background:#20b96b;color:white;width:57px;height:57px;border-radius:50%;display:grid;place-items:center;font-size:26px;box-shadow:0 5px 18px #0003;z-index:6}.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:#153d37;color:white;padding:12px 18px;border-radius:10px;display:none;z-index:10;font-size:13px}.modal-backdrop{position:fixed;inset:0;background:#10221dcc;display:none;place-items:center;padding:16px;z-index:20}.modal{background:white;border-radius:16px;width:min(460px,100%);padding:24px}.modal h3{margin-top:0;color:var(--green)}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:13px;color:#59645f}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;background:white}.modal-actions{display:flex;gap:9px;margin-top:18px}.modal-actions .btn{flex:1}.btn-light{background:#f1eee8;color:var(--ink)}.empty{display:none;text-align:center;color:var(--muted);padding:25px}
+[dir="ltr"] .hero{background-image:linear-gradient(90deg,rgba(13,24,21,.76),rgba(13,24,21,.22)),url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85')}
+@media(max-width:1000px){.navlinks{gap:13px}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product-img{height:250px}.hero{min-height:380px}.hero-content{padding:38px;max-width:500px}}
+@media(max-width:700px){.topbar{font-size:11px;padding:8px 4%}.nav{padding:12px 4%;gap:10px}.brand{font-size:22px}.brand-mark{width:35px;height:30px}.navlinks{display:none;position:absolute;top:100%;inset-inline:0;background:white;padding:18px 5%;flex-direction:column;gap:18px;border-top:1px solid var(--line)}.navlinks.open{display:flex}.menu-btn{display:inline-block}.nav-actions{gap:5px}.iconbtn{width:35px;height:35px}#openAdminTop{padding:7px 8px!important;font-size:10px!important}.hero{width:92%;min-height:450px;background-position:58% center;margin-top:12px}.hero-content{padding:28px 23px;max-width:100%;align-self:end;background:linear-gradient(0deg,#10211dd9,transparent);width:100%}.hero h1{font-size:35px}.hero p{font-size:15px}.benefits{grid-template-columns:repeat(2,1fr);padding:8px;margin-bottom:36px}.benefit{padding:14px 5px;border-bottom:1px solid var(--line)}.benefit:nth-child(2){border-inline-start:0}.benefit:nth-child(n+3){border-bottom:0}.section-head h2{font-size:24px}.products{gap:10px}.product-img{height:170px}.product-body{padding:11px}.product h3{font-size:14px}.product .desc{font-size:11px}.price{font-size:15px}.product .btn{font-size:12px;padding:10px 5px}.about{grid-template-columns:1fr}.about img{height:230px;min-height:230px}.about-text{padding:25px}.contact{padding:24px;align-items:flex-start;flex-direction:column}.footer{margin-top:40px}.floating-wa{width:51px;height:51px;bottom:14px;inset-inline-end:14px}}
+@media(max-width:360px){.products{grid-template-columns:1fr}.product-img{height:230px}.hero h1{font-size:30px}.topbar .top-tag{display:none}}
+.admin-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}.admin-tab{border:1px solid var(--line);background:#f7f5f0;color:var(--green);padding:13px 9px;border-radius:10px;font-weight:bold;cursor:pointer}.admin-tab.active{background:var(--green);color:white;border-color:var(--green)}.admin-panel{display:none;padding:12px 0}.admin-panel.active{display:block}.image-preview{max-width:180px;max-height:140px;object-fit:contain;border:1px solid var(--line);border-radius:8px;display:none;margin-top:8px}.admin-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}@media(max-width:600px){.admin-form-grid{grid-template-columns:1fr}.admin-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cart-line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.cart-line button{border:0;background:#f4ece2;border-radius:6px;padding:5px 8px;cursor:pointer}.admin-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.admin-row button{border:0;border-radius:6px;padding:7px 9px;cursor:pointer}.admin-row .edit{background:#e8e2d8}.admin-row .delete{background:#f8dfdc;color:#842d22}.order-card{border:1px solid var(--line);border-radius:10px;padding:12px;margin:10px 0;background:#fff}.order-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:bold}.order-meta{font-size:12px;color:var(--muted);line-height:1.8;margin:7px 0}.order-items{font-size:12px;line-height:1.8;background:#f8f5ef;border-radius:8px;padding:8px;margin:8px 0}.order-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.order-tools input,.order-tools select,.order-card select{padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff;min-width:0}.order-tools input{flex:1;min-width:150px}.order-card select{max-width:100%}#adminBackdrop .modal{margin:auto}.modal-backdrop{overflow:auto}@media(max-width:500px){.filters{gap:6px}.filter{padding:8px 11px;font-size:12px}}\n
+/* MARIMAX premium admin theme: black, gold and ivory */
+:root{--green:#151515;--green2:#292929;--gold:#c9a45c;--cream:#f5f3ee;--ink:#171717;--muted:#77736b;--line:#e6dfd2}
+#adminBackdrop .modal{width:min(1080px,100%)!important;background:#f7f5f0;border:1px solid #d9c79f;box-shadow:0 24px 80px #0007;padding:22px}
+#adminBackdrop .modal>h3{color:#171717;border-bottom:1px solid #d8c49a;padding-bottom:14px;font-size:22px;letter-spacing:.5px}
+#adminStatus{background:#eee9df;border-radius:9px;padding:9px 12px}
+.admin-tabs{grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px}
+.admin-tab{background:#222;color:#f4ead5;border:1px solid #51452f;min-height:46px}
+.admin-tab.active{background:#c9a45c;color:#171717;border-color:#c9a45c}
+.admin-panel{background:#fff;border:1px solid #e6dfd2;border-radius:13px;padding:18px;margin:12px 0}
+.admin-panel h3{color:#24211b}
+.dash-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 16px}
+.dash-head h3{margin:0;font-size:21px}.dash-sub{color:#77736b;font-size:12px;margin-top:5px}
+.dash-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.dash-card{background:#191919;color:#fff;border:1px solid #3d3425;border-radius:12px;padding:15px;min-height:105px;position:relative;overflow:hidden}
+.dash-card:after{content:"";position:absolute;width:65px;height:65px;border:1px solid #c9a45c55;border-radius:50%;inset-inline-end:-18px;top:-22px}
+.dash-label{font-size:12px;color:#d7c9ad}.dash-value{font-size:23px;font-weight:800;color:#e0bd78;margin-top:12px;direction:ltr;text-align:start}
+.dash-card.light{background:#f4efe5;color:#222;border-color:#e4d6b9}.dash-card.light .dash-label{color:#706653}.dash-card.light .dash-value{color:#9b742e}
+.dash-lower{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-top:12px}.dash-box{border:1px solid #e6dfd2;border-radius:12px;padding:15px;background:#fff;min-width:0}.dash-box h4{margin:0 0 13px;color:#29251d}
+.dash-bars{height:170px;display:flex;align-items:end;gap:9px;border-bottom:1px solid #e7e0d4;padding:8px 2px 0}.dash-bar-col{flex:1;min-width:0;text-align:center;height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:6px}.dash-bar{width:min(32px,75%);background:linear-gradient(180deg,#d8b66f,#94702f);border-radius:6px 6px 0 0;min-height:3px}.dash-bar-label{font-size:10px;color:#777;white-space:nowrap}.dash-bar-value{font-size:9px;color:#8b6b32;white-space:nowrap}
+.dash-ranking{display:flex;flex-direction:column;gap:9px}.dash-rank{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #eee8dd;padding:7px 0;font-size:12px}.dash-rank b{color:#8b6b32;white-space:nowrap}
+.dash-shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.dash-shortcuts button{border:1px solid #c9a45c;background:#fffaf0;color:#4c3b1d;border-radius:8px;padding:10px 13px;font-weight:bold;cursor:pointer}
+@media(max-width:700px){#adminBackdrop .modal{padding:13px}.dash-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dash-card{padding:12px;min-height:94px}.dash-value{font-size:19px}.dash-lower{grid-template-columns:1fr}.admin-panel{padding:12px}.dash-bars{gap:4px}}
+
+
+/* MARIMAX storefront refinement */
+:root{--gold:#c7a15b;--cream:#f7f5f0;--ink:#22211e;--line:#e9e3d8}
+body{line-height:1.55}button,a,input{ -webkit-tap-highlight-color:transparent }
+:focus-visible{outline:3px solid #c7a15b!important;outline-offset:3px}
+.hero{min-height:470px;box-shadow:0 18px 45px #1b29251a;background-position:center 56%}
+.hero-content{max-width:610px}.hero h1{letter-spacing:-.5px;text-wrap:balance}.hero p{max-width:520px}
+.benefits{box-shadow:0 8px 24px #342b1d08}
+.section{scroll-margin-top:95px}.section-head{margin-bottom:15px}
+.catalog-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 16px}
+.catalog-search{display:flex;align-items:center;gap:9px;width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 13px;min-height:46px;color:var(--gold)}
+.catalog-search input{border:0;outline:0!important;box-shadow:none!important;min-width:0;flex:1;background:transparent;color:var(--ink);font-size:14px}
+.catalog-search button{border:0;background:#f3efe7;color:#625b4e;border-radius:50%;width:27px;height:27px;cursor:pointer;font-size:19px;line-height:1}
+.product-count{font-size:12px;color:var(--muted);white-space:nowrap}
+.products{gap:20px}.product{border-radius:16px;box-shadow:0 5px 18px #2a211008}.product-img{height:245px;background:#eeeae2}.product-img img{transition:transform .5s,filter .4s}.product:hover .product-img img{transform:scale(1.055);filter:saturate(1.05)}
+.product-body{padding:16px}.product h3{line-height:1.5;min-height:24px}.product .desc{min-height:40px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.product-actions .btn{width:100%;padding:10px 8px;font-size:12px}.btn-detail{background:#f1ede5;color:#37332b;border:1px solid #e8dfcf}
+.product-detail-modal{position:relative;width:min(760px,100%);max-height:90vh;overflow:auto;padding:18px}.detail-close{position:absolute;top:10px;inset-inline-end:10px;z-index:2;border:0;background:#fff;border-radius:50%;width:38px;height:38px;font-size:25px;box-shadow:0 2px 12px #0002;cursor:pointer}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}.detail-layout img{width:100%;height:360px;object-fit:cover;border-radius:12px;background:#eee}.detail-info{padding:16px}.detail-info h2{color:var(--green);font-size:25px;margin:0 0 10px}.detail-info p{color:var(--muted);line-height:1.9}.detail-price{font-size:23px;font-weight:800;color:var(--gold);margin:16px 0}.detail-info .btn{width:100%;margin-top:8px}
+.modal{max-height:90vh;overflow:auto}.floating-wa{transition:transform .2s,box-shadow .2s}.floating-wa:hover{transform:translateY(-3px);box-shadow:0 9px 24px #0004}
+@media(max-width:700px){.hero{min-height:430px}.catalog-tools{align-items:stretch;flex-direction:column}.catalog-search{width:100%}.product-img{height:190px}.products{gap:12px}.product-actions{grid-template-columns:1fr}.product-actions .btn{font-size:11px;padding:9px 5px}.product-detail-modal{padding:12px}.detail-layout{grid-template-columns:1fr;gap:8px}.detail-layout img{height:240px}.detail-info{padding:8px 4px}.detail-info h2{font-size:21px}}
+@media(max-width:380px){.product-img{height:155px}.product-body{padding:9px}.product h3{font-size:13px}.price{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Clear customer cart layout */
+#cartBackdrop{padding:12px;align-items:center}
+#cartBackdrop .cart-modal{width:min(760px,100%);max-height:94dvh;overflow:auto;padding:0;border:1px solid #e6dfd2;box-shadow:0 22px 70px #0005;display:flex;flex-direction:column}
+.cart-modal-head{position:sticky;top:0;z-index:2;background:#fff;padding:19px 22px 13px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cart-modal-head h3{margin:0;font-size:21px}.cart-head-count{font-size:12px;color:var(--muted);background:#f5f1e8;border-radius:20px;padding:7px 11px;white-space:nowrap}
+#cartItems{padding:12px 20px 4px}.cart-item-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line);align-items:start}
+.cart-item-img{width:92px;height:88px;object-fit:cover;border-radius:10px;background:#f1eee8}.cart-item-info{min-width:0}.cart-item-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.cart-item-name{font-weight:700;font-size:15px;line-height:1.5}.cart-item-unit{font-size:12px;color:var(--muted);margin-top:3px}.cart-item-subtotal{font-weight:800;color:var(--green);white-space:nowrap;font-size:14px}
+.cart-item-controls{display:flex;align-items:center;gap:7px;margin-top:9px}.cart-item-controls button{border:1px solid var(--line);background:#f8f6f1;border-radius:7px;min-width:32px;height:31px;cursor:pointer;font-weight:bold}.cart-item-controls .qty-value{min-width:24px;text-align:center;font-weight:bold}.cart-item-controls .remove-item{margin-inline-start:auto;color:#a33;background:#fff4f1;border-color:#f1d6d0;padding:0 10px;font-size:12px}
+.cart-item-card .field{margin:10px 0 0}.cart-item-card .field label{font-weight:700}.cart-summary{margin:12px 20px 4px;padding:14px 16px;border-radius:12px;background:#f6f2e9;border:1px solid #eadfc9;display:flex;justify-content:space-between;align-items:center;gap:12px}.cart-summary-label{font-size:13px;color:#655e51}.cart-summary-total{font-size:21px;font-weight:800;color:var(--green)}.cart-form{padding:4px 20px 18px}.cart-form-title{font-size:15px;font-weight:bold;margin:12px 0 5px}.cart-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.cart-modal-actions{position:sticky;bottom:0;background:#fff;padding:12px 20px 18px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:10px}.cart-modal-actions .btn{min-height:47px}.cart-empty{padding:35px 15px;text-align:center;color:var(--muted)}.cart-empty-icon{font-size:38px;margin-bottom:8px}
+@media(max-width:520px){#cartBackdrop{padding:7px;align-items:end}#cartBackdrop .cart-modal{width:100%;max-height:95dvh;border-radius:16px 16px 10px 10px}.cart-modal-head{padding:15px 15px 11px}#cartItems{padding:8px 14px 2px}.cart-item-card{grid-template-columns:76px minmax(0,1fr);gap:10px;padding:11px 0}.cart-item-img{width:76px;height:76px}.cart-item-name{font-size:14px}.cart-item-subtotal{font-size:13px}.cart-summary{margin:10px 14px 3px;padding:12px}.cart-form{padding:2px 14px 12px}.cart-form-grid{grid-template-columns:1fr;gap:0}.cart-modal-actions{padding:10px 14px 14px;grid-template-columns:1fr}.cart-modal-actions .btn{min-height:44px}}
+
+
+/* Prominent always-visible shopping cart */
+.floating-cart{position:fixed;left:20px;bottom:20px;z-index:15;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 18px;border:0;border-radius:999px;background:var(--gold);color:#fff;font-weight:800;font-size:15px;box-shadow:0 7px 24px #0003;cursor:pointer;direction:rtl}
+.floating-cart .floating-cart-icon{font-size:22px;line-height:1}
+.floating-cart .floating-cart-count{display:inline-grid;place-items:center;min-width:23px;height:23px;padding:0 6px;border-radius:20px;background:#fff;color:var(--green);font-size:12px}
+.floating-cart:active{transform:scale(.97)}
+@media(max-width:700px){.floating-cart{left:12px;bottom:13px;min-height:52px;padding:0 15px;font-size:14px;box-shadow:0 6px 20px #0004}.floating-wa{right:12px;bottom:13px;inset-inline-end:12px}}
+@media(max-width:360px){.floating-cart{left:9px;bottom:10px;min-height:48px;padding:0 12px;font-size:12px}.floating-cart .floating-cart-icon{font-size:19px}}
+
+
+
+/* Stability and responsive layout repair */
+html{overflow-x:hidden;scroll-padding-top:84px}
+body{min-width:320px;overflow-x:hidden}
+.nav{position:sticky;top:0;z-index:30;min-width:0}
+.brand,.nav-actions,.navlinks{min-width:0}
+.nav-actions{flex:0 0 auto;flex-wrap:nowrap}
+.navlinks{z-index:31}
+.product,.product-body,.product-actions{min-width:0}
+.product-actions .btn{min-width:0;white-space:normal;line-height:1.35}
+.floating-cart{max-width:calc(100vw - 92px);white-space:nowrap;z-index:40;bottom:max(14px,env(safe-area-inset-bottom));left:max(14px,env(safe-area-inset-left))}
+.floating-wa{z-index:40;bottom:max(14px,env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right));inset-inline-end:max(14px,env(safe-area-inset-right))}
+.toast{z-index:60;max-width:calc(100vw - 32px);text-align:center}
+.modal-backdrop{z-index:100;overscroll-behavior:contain}
+@media(max-width:700px){
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:7px;padding:10px 12px;min-height:62px}
+  .brand{font-size:19px;gap:7px;flex:1 1 auto;overflow:hidden}
+  .brand small{font-size:9px}
+  .brand-mark{width:31px;height:27px;flex:0 0 31px}
+  .nav-actions{gap:6px;flex:0 0 auto}
+  .nav-actions #searchBtn,.nav-actions #cartBtn{display:none!important}
+  .nav-actions #openAdminTop{padding:7px 9px!important;font-size:10px!important;max-width:100px;white-space:nowrap}
+  .nav-actions .menu-btn{display:inline-grid;place-items:center;flex:0 0 35px}
+  .navlinks{position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 70px);overflow-y:auto;box-shadow:0 12px 22px #0002}
+  .hero{width:calc(100% - 24px);margin:12px auto 0;min-height:390px}
+  .section,.benefits{width:calc(100% - 24px)}
+  .floating-cart{left:12px;max-width:calc(100vw - 88px);min-height:49px;padding:0 13px;font-size:13px;gap:7px}
+  .floating-wa{right:12px;inset-inline-end:12px;width:49px;height:49px}
+  body{padding-bottom:76px}
+}
+@media(max-width:380px){
+  .brand{font-size:17px}.brand small{font-size:8px}
+  .nav-actions #openAdminTop{max-width:82px;font-size:9px!important;padding:7px 6px!important}
+  .floating-cart{left:9px;max-width:calc(100vw - 82px);font-size:12px;padding:0 10px}
+  .floating-cart .floating-cart-icon{font-size:18px}
+  .floating-wa{right:9px;inset-inline-end:9px;width:46px;height:46px}
+}
+@media(prefers-reduced-motion:reduce){.product,.product-img img,.btn{transition:none!important}}
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FurnitureStore","name":"MARIMAX","url":"https://marimax-ochre.vercel.app/","description":"متجر MARIMAX للأرائك والأثاث المنزلي والديكور. الطلبات والاستفسارات عبر واتساب.","telephone":"+213699271542","currenciesAccepted":"DZD","priceRange":"$$"}
+</script>
+</head>
+<body>
+<div class="topbar">
+  <span id="tagline">أناقة تجمع بين الراحة والأناقة</span>
+  <a id="topWhatsapp" href="https://wa.me/213699271542" data-store-wa target="_blank" rel="noopener">◉ <span data-ar="تواصل عبر واتساب" data-fr="Contactez-nous sur WhatsApp">تواصل عبر واتساب</span></a>
+  <button class="lang" id="langBtn" type="button">FR ⇄ العربية</button>
+</div>
+<header class="nav">
+  <a class="brand" href="#home" aria-label="MARIMAX"><span class="brand-mark"></span><span><span class="brand-name">MARIMAX</span><small>Mobilier & Décoration</small></span></a>
+  <nav class="navlinks" id="navlinks">
+    <a href="#home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a><a href="#products" data-ar="الأرائك" data-fr="Canapés">الأرائك</a><a href="#products" data-ar="الأثاث" data-fr="Mobilier">الأثاث</a><a href="#about" data-ar="من نحن" data-fr="À propos">من نحن</a><a href="#contact" data-ar="اتصل بنا" data-fr="Contact">اتصل بنا</a>
+  </nav>
+  <div class="nav-actions"><button class="iconbtn menu-btn" id="menuBtn" aria-label="القائمة">☰</button><button class="iconbtn" id="searchBtn" aria-label="بحث">⌕</button><button class="btn btn-gold nav-cart-btn" id="cartBtn" type="button" aria-label="سلة المشتريات" style="padding:9px 13px;font-size:13px">🛒 <span data-ar="السلة" data-fr="Panier">السلة</span> <span class="cart-count" id="cartCount">0</span></button><button class="btn btn-gold" id="openAdminTop" type="button" style="padding:9px 12px;font-size:12px" data-ar="إدارة المتجر" data-fr="Administration">إدارة المتجر</button></div>
+</header>
+<button class="floating-cart" id="floatingCartBtn" type="button" aria-label="فتح سلة المشتريات"><span class="floating-cart-icon">🛒</span><span data-ar="سلة المشتريات" data-fr="Mon panier">سلة المشتريات</span><span class="floating-cart-count" id="floatingCartCount">0</span></button>
+<main>
+<section class="hero" id="home"><div class="hero-content">
+  <span class="eyebrow" data-ar="تصاميم مختارة بعناية" data-fr="DESIGN SÉLECTIONNÉ AVEC SOIN">تصاميم مختارة بعناية</span>
+  <h1 data-ar="أثاث منزلي أنيق<br>لبيت تحبّه كل يوم" data-fr="Un mobilier élégant<br>pour un intérieur chaleureux">أثاث منزلي أنيق<br>لبيت تحبّه كل يوم</h1>
+  <p data-ar="اكتشف الأثاث الذي يناسب منزلك: أرائك، غرف نوم، طاولات، كراسي وقطع ديكور بتصاميم عصرية." data-fr="Découvrez nos canapés, chambres, tables, chaises et objets déco pour toute la maison.">اكتشف الأثاث الذي يناسب منزلك: أرائك، غرف نوم، طاولات، كراسي وقطع ديكور بتصاميم عصرية.</p>
+  <a class="btn btn-gold" href="#products"><span data-ar="اكتشف مجموعتنا" data-fr="Découvrir la collection">اكتشف مجموعتنا</span> ←</a>
+  <a class="btn btn-outline" href="#contact" data-ar="تواصل معنا" data-fr="Nous contacter">تواصل معنا</a>
+</div></section>
+<section class="benefits" aria-label="مميزات المتجر">
+  <div class="benefit"><div class="symbol">♧</div><strong data-ar="تصميم عصري" data-fr="Design moderne">تصميم عصري</strong><span data-ar="أناقة لكل منزل" data-fr="Élégance chez vous">أناقة لكل منزل</span></div>
+  <div class="benefit"><div class="symbol">✓</div><strong data-ar="جودة نهتم بها" data-fr="Qualité soignée">جودة نهتم بها</strong><span data-ar="اختيار بعناية" data-fr="Sélection soignée">اختيار بعناية</span></div>
+  <div class="benefit"><div class="symbol">⌂</div><strong data-ar="خيارات متنوعة" data-fr="Plusieurs choix">خيارات متنوعة</strong><span data-ar="ألوان وموديلات" data-fr="Couleurs et modèles">ألوان وموديلات</span></div>
+  <div class="benefit"><div class="symbol">☏</div><strong data-ar="طلب سهل" data-fr="Commande facile">طلب سهل</strong><span data-ar="عبر واتساب مباشرة" data-fr="Directement sur WhatsApp">عبر واتساب مباشرة</span></div>
+</section>
+<section class="section" id="products">
+  <div class="section-head"><div><h2 data-ar="اكتشف مجموعتنا" data-fr="Découvrez notre collection">اكتشف مجموعتنا</h2><p data-ar="اختيارات مميزة لتصنع مساحة تشبهك." data-fr="Des pièces choisies pour un intérieur qui vous ressemble.">اختيارات مميزة لتصنع مساحة تشبهك.</p></div></div>
+  <div class="filters" id="filters"><button class="filter active" data-cat="all" data-ar="كل المنتجات" data-fr="Tout">كل المنتجات</button><button class="filter" data-cat="sofa" data-ar="أرائك" data-fr="Canapés">أرائك</button><button class="filter" data-cat="corner" data-ar="أرائك زاوية" data-fr="Canapés d’angle">أرائك زاوية</button><button class="filter" data-cat="chair" data-ar="كراسي" data-fr="Chaises">كراسي</button><button class="filter" data-cat="bedroom" data-ar="غرف النوم" data-fr="Chambres">غرف النوم</button><button class="filter" data-cat="dining" data-ar="طاولات الطعام" data-fr="Salle à manger">طاولات الطعام</button><button class="filter" data-cat="decor" data-ar="ديكور وتخزين" data-fr="Déco & rangement">ديكور وتخزين</button></div>
+  <div class="catalog-tools"><label class="catalog-search"><span aria-hidden="true">⌕</span><input id="productSearch" type="search" placeholder="ابحث عن أريكة أو منتج..." aria-label="ابحث في المنتجات"><button id="clearProductSearch" type="button" aria-label="مسح البحث">×</button></label><span id="productCount" class="product-count" aria-live="polite"></span></div>
+  <p id="storeDbNotice" style="color:#737c78;font-size:12px;margin:0 0 12px"></p><div class="products" id="productsGrid"></div><div class="empty" id="empty">لا توجد منتجات في هذا التصنيف.</div>
+</section>
+<section class="section" id="about"><div class="about"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80" alt="ديكور غرفة جلوس عصرية" loading="lazy"><div class="about-text"><span class="eyebrow" style="color:var(--gold)" data-ar="MARIMAX • بيتك يستحق الأفضل" data-fr="MARIMAX • LE MEILLEUR POUR CHEZ VOUS">MARIMAX • بيتك يستحق الأفضل</span><h2 data-ar="راحة تليق ببيتك" data-fr="Le confort qui vous ressemble">راحة تليق ببيتك</h2><p data-ar="نساعدك على اختيار قطع أثاث تجمع بين الجمال والراحة. تصفح الموديلات، اختر ما يناسبك، وأرسل طلبك بسهولة عبر واتساب." data-fr="Nous vous aidons à choisir un mobilier qui associe beauté et confort. Parcourez nos modèles et envoyez votre demande facilement sur WhatsApp.">نساعدك على اختيار قطع أثاث تجمع بين الجمال والراحة. تصفح الموديلات، اختر ما يناسبك، وأرسل طلبك بسهولة عبر واتساب.</p><a href="#products" class="btn btn-gold" data-ar="تصفح المنتجات" data-fr="Voir les produits">تصفح المنتجات</a></div></div></section>
+<section class="section" id="contact"><div class="contact"><div><h2 data-ar="هل وجدت ما يعجبك؟" data-fr="Vous avez trouvé votre coup de cœur ?">هل وجدت ما يعجبك؟</h2><p data-ar="راسلنا عبر واتساب للاستفسار عن الأسعار، الألوان، والمقاسات المتاحة." data-fr="Écrivez-nous sur WhatsApp pour les prix, les couleurs et les dimensions disponibles.">راسلنا عبر واتساب للاستفسار عن الأسعار، الألوان، والمقاسات المتاحة.</p></div><a class="btn btn-wa" href="https://wa.me/213699271542" data-store-wa target="_blank" rel="noopener">◉ <span data-ar="تواصل عبر واتساب" data-fr="Contacter sur WhatsApp">تواصل عبر واتساب</span></a></div></section>
+</main>
+<footer class="footer"><div><strong class="store-name">MARIMAX</strong><br><small data-ar="الأثاث الذي يشبهك" data-fr="Le mobilier qui vous ressemble">الأثاث الذي يشبهك</small><div id="companyAddressPublic" style="margin-top:8px;line-height:1.8"></div><div id="inquiryPhonesPublic" style="margin-top:6px;line-height:1.8"></div><div id="companyMapPublic" style="margin-top:6px"></div></div><div><span data-ar="الطلبات عبر واتساب" data-fr="Commandes sur WhatsApp">الطلبات عبر واتساب</span><br><b class="store-phone" dir="ltr">0699271542</b></div><button id="openAdmin" class="btn btn-outline" style="color:inherit;border-color:#ffffff55" data-ar="إدارة المتجر" data-fr="Administration">إدارة المتجر</button><small>© <span id="year"></span> <span class="store-name">MARIMAX</span> — <span data-ar="جميع الحقوق محفوظة" data-fr="Tous droits réservés">جميع الحقوق محفوظة</span></small></footer>
+<a class="floating-wa" href="https://wa.me/213699271542" data-store-wa target="_blank" rel="noopener" aria-label="WhatsApp">◉</a>
+<div class="modal-backdrop" id="productDetailBackdrop" aria-hidden="true"><div class="modal product-detail-modal" role="dialog" aria-modal="true" aria-labelledby="productDetailTitle"><button class="detail-close" id="closeProductDetail" type="button" aria-label="إغلاق">×</button><div id="productDetailContent"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h3 id="modalTitle">أرسل طلبك عبر واتساب</h3><div id="modalProduct"></div><div class="field"><label for="customerName" data-ar="اسمك" data-fr="Votre nom">اسمك</label><input id="customerName" autocomplete="name" placeholder="الاسم الكامل"></div><div class="field"><label for="customerPhone" data-ar="رقم هاتفك" data-fr="Votre téléphone">رقم هاتفك</label><input id="customerPhone" type="tel" autocomplete="tel" placeholder="05 / 06 / 07..."></div><div class="field"><label for="customerCity" data-ar="الولاية / المدينة" data-fr="Wilaya / Ville">الولاية / المدينة</label><input id="customerCity" placeholder="المدينة"></div><div class="field"><label for="quantity" data-ar="الكمية" data-fr="Quantité">الكمية</label><select id="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div><div class="field"><label for="customerNote" data-ar="ملاحظة (اختياري)" data-fr="Note (facultatif)">ملاحظة (اختياري)</label><input id="customerNote" placeholder="اللون أو المقاس المطلوب"></div><div class="modal-actions"><button class="btn btn-wa" id="sendOrder">إرسال عبر واتساب</button><button class="btn btn-light" id="closeModal">إلغاء</button></div></div></div>
+
+<div class="modal-backdrop" id="cartBackdrop"><div class="modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><div class="cart-modal-head"><h3 id="cartTitle" data-ar="سلة مشترياتك" data-fr="Votre panier">سلة مشترياتك</h3><span class="cart-head-count" id="cartItemCount">0 منتجات</span></div><div id="cartItems"></div><div class="cart-summary"><span class="cart-summary-label" data-ar="المجموع التقريبي للطلب" data-fr="Total estimé de la commande">المجموع التقريبي للطلب</span><strong class="cart-summary-total" id="cartTotal">0 دج</strong></div><div class="cart-form"><div class="cart-form-title" data-ar="معلومات التوصيل" data-fr="Informations de livraison">معلومات التوصيل</div><div class="cart-form-grid"><div class="field"><label for="cartName" data-ar="الاسم الكامل" data-fr="Nom complet">الاسم الكامل</label><input id="cartName" autocomplete="name" placeholder="الاسم الكامل"></div><div class="field"><label for="cartPhone" data-ar="رقم الهاتف" data-fr="Téléphone">رقم الهاتف</label><input id="cartPhone" type="tel" autocomplete="tel" placeholder="05 / 06 / 07"></div><div class="field"><label for="cartCity" data-ar="الولاية والبلدية" data-fr="Wilaya et commune">الولاية والبلدية</label><input id="cartCity" placeholder="مثال: الجزائر - باب الزوار"></div><div class="field"><label for="cartAddress" data-ar="العنوان بالتفصيل" data-fr="Adresse détaillée">العنوان بالتفصيل</label><input id="cartAddress" placeholder="الحي، الشارع، رقم المنزل"></div></div><div class="field"><label for="cartNote" data-ar="ملاحظات (اختياري)" data-fr="Notes (facultatif)">ملاحظات (اختياري)</label><input id="cartNote" placeholder="أي تفاصيل إضافية"></div></div><div class="cart-modal-actions"><button class="btn btn-wa" id="checkoutBtn" data-ar="تأكيد الطلب عبر واتساب" data-fr="Confirmer sur WhatsApp">تأكيد الطلب عبر واتساب</button><button class="btn btn-light" id="closeCart" data-ar="متابعة التسوق" data-fr="Continuer mes achats">متابعة التسوق</button></div></div></div>
+<div class="modal-backdrop" id="adminBackdrop"><div class="modal" role="dialog" aria-modal="true" style="width:min(900px,100%);max-height:92vh;overflow:auto"><h3><span class="store-name">MARIMAX</span> — <span data-ar="إدارة المتجر" data-fr="Administration">إدارة المتجر</span></h3><p id="adminStatus" style="font-size:13px;color:#737c78">تسجيل دخول المدير مطلوب</p><div id="adminLogin"><div class="field"><label for="adminEmail">Email</label><input id="adminEmail" type="email" autocomplete="username"></div><div class="field"><label for="adminPassword" data-ar="كلمة المرور" data-fr="Mot de passe">كلمة المرور</label><input id="adminPassword" type="password" autocomplete="current-password"></div><button class="btn btn-gold" id="adminLoginBtn" data-ar="دخول المدير" data-fr="Connexion admin">دخول المدير</button></div><div id="adminEditor" style="display:none">
+<section class="admin-panel active" id="dashboardPanel">
+ <div class="dash-head"><div><h3>لوحة قيادة MARIMAX</h3><div class="dash-sub">نظرة سريعة على أداء المتجر والطلبيات</div></div><button class="btn btn-gold" type="button" onclick="refreshDashboard()">↻ تحديث البيانات</button></div>
+ <div class="dash-grid">
+  <div class="dash-card"><div class="dash-label">إجمالي المبيعات المسلّمة</div><div class="dash-value" id="dashRevenue">—</div></div>
+  <div class="dash-card light"><div class="dash-label">مبيعات هذا الشهر</div><div class="dash-value" id="dashMonthRevenue">—</div></div>
+  <div class="dash-card"><div class="dash-label">كل الطلبيات</div><div class="dash-value" id="dashOrders">—</div></div>
+  <div class="dash-card light"><div class="dash-label">عدد المنتجات</div><div class="dash-value" id="dashProducts">—</div></div>
+  <div class="dash-card light"><div class="dash-label">طلبيات جديدة</div><div class="dash-value" id="dashNew">—</div></div>
+  <div class="dash-card"><div class="dash-label">قيد المعالجة</div><div class="dash-value" id="dashProcessing">—</div></div>
+  <div class="dash-card light"><div class="dash-label">طلبيات جاهزة</div><div class="dash-value" id="dashReady">—</div></div>
+  <div class="dash-card"><div class="dash-label">تم تسليمها</div><div class="dash-value" id="dashDelivered">—</div></div>
+ </div>
+ <div class="dash-shortcuts"><button type="button" onclick="showAdminPanel('ordersPanel')">📋 عرض الطلبيات</button><button type="button" onclick="showAdminPanel('productsPanel')">🛋️ إدارة المنتجات</button><button type="button" onclick="showAdminPanel('addOrderPanel')">＋ طلبية جديدة</button><button type="button" onclick="showAdminPanel('settingsPanel')">⚙️ الإعدادات</button></div>
+ <div class="dash-lower"><div class="dash-box"><h4>المبيعات خلال آخر 7 أيام (دج)</h4><div class="dash-bars" id="dashSalesChart"><span>سيظهر الرسم بعد تحميل البيانات</span></div></div><div class="dash-box"><h4>المنتجات الأكثر طلباً</h4><div class="dash-ranking" id="dashTopProducts">لا توجد بيانات كافية بعد.</div></div></div>
+ <p class="dash-sub">تُحسب المبيعات من الطلبيات التي حالتها «تم التسليم» فقط. وتعتمد التقارير على البيانات المسجلة في جدول orders.</p>
+</section>
+<div class="admin-tabs" role="tablist">
+<button class="admin-tab active" type="button" data-admin-tab="dashboardPanel">▦ لوحة التحكم</button>
+<button class="admin-tab" type="button" data-admin-tab="settingsPanel">⚙️ إعدادات المتجر</button>
+<button class="admin-tab" type="button" data-admin-tab="ordersPanel">📋 جهة الطلبيات</button>
+<button class="admin-tab" type="button" data-admin-tab="addOrderPanel">＋ إضافة طلبية</button>
+<button class="admin-tab" type="button" data-admin-tab="productsPanel">🛋️ إدارة المنتجات</button>
+<button class="admin-tab" type="button" data-admin-tab="fabricsPanel" id="fabricsTab">🧵 مخزن الأقمشة</button>
+<button class="admin-tab" type="button" data-admin-tab="adminsPanel" id="adminsTab" style="display:none">👥 إدارة المديرين</button>
+</div>
+<section class="admin-panel" id="settingsPanel"><h3 data-ar="إعدادات المتجر" data-fr="Paramètres du magasin">إعدادات المتجر</h3>
+<div class="field"><label for="storeNameInput">اسم المتجر</label><input id="storeNameInput" maxlength="70" placeholder="MARIMAX"></div>
+<div class="field">
+<label for="heroImageFile">صورة واجهة المتجر الرئيسية</label>
+<input id="heroImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+<small style="color:#777">اختر صورة من هاتفك بصيغة JPG أو PNG أو WEBP أو GIF، وبحجم لا يتجاوز 20 ميغابايت.</small>
+<img id="heroImagePreview" class="image-preview" alt="معاينة صورة واجهة المتجر" style="max-width:100%;width:100%;max-height:220px;object-fit:cover">
+<button class="btn btn-light" id="removeHeroImageBtn" type="button" style="margin-top:8px">إزالة الصورة والعودة للصورة الافتراضية</button>
+</div>
+<div class="field"><label for="storeWhatsappInput">رقم واتساب لاستقبال الطلبيات (مع مفتاح الدولة)</label><input id="storeWhatsappInput" type="tel" inputmode="tel" placeholder="213699271542" dir="ltr"></div>
+<div class="field"><label for="companyAddressInput">عنوان الشركة / المعرض</label><input id="companyAddressInput" maxlength="250" placeholder="الشارع، البلدية، الولاية"></div>
+<div class="field"><label for="inquiryPhonesInput">أرقام هواتف الاستعلام (افصل بينها بفاصلة)</label><input id="inquiryPhonesInput" type="text" inputmode="tel" placeholder="0550000000, 0660000000" dir="ltr"></div>
+<div class="admin-form-grid"><div class="field"><label for="gpsLatInput">خط العرض GPS</label><input id="gpsLatInput" type="text" inputmode="decimal" placeholder="36.000000" dir="ltr"></div><div class="field"><label for="gpsLngInput">خط الطول GPS</label><input id="gpsLngInput" type="text" inputmode="decimal" placeholder="3.000000" dir="ltr"></div></div>
+<div class="modal-actions"><button class="btn btn-light" id="getGpsBtn" type="button">📍 تحديد موقعي GPS</button><a class="btn btn-light" id="previewMapBtn" href="#" target="_blank" rel="noopener">عرض الخريطة</a></div>
+<p style="font-size:12px;color:#737c78">اضغط تحديد موقعي واسمح للمتصفح بالوصول إلى الموقع، أو أدخل الإحداثيات يدويًا.</p>
+<div class="field"><label for="globalProductNoteInput">ملاحظة عامة تظهر في تفاصيل جميع المنتجات (بالعربية)</label><textarea id="globalProductNoteInput" rows="3" placeholder="مثال: للاستفسار عن تكلفة التوصيل اتصل بنا"></textarea></div><div class="field"><label for="globalProductNoteFrInput">الملاحظة العامة بالفرنسية</label><textarea id="globalProductNoteFrInput" rows="3" placeholder="Pour connaître les frais de livraison, contactez-nous"></textarea></div><small>أي تعديل هنا ينعكس تلقائياً على جميع المنتجات دون الحاجة إلى تعديل كل منتج.</small><button class="btn btn-gold" id="saveStoreSettingsBtn" type="button">حفظ إعدادات المتجر</button></section>
+<section class="admin-panel" id="ordersPanel"><h3>جهة الطلبيات</h3><div class="order-tools"><input id="orderSearch" type="search" placeholder="ابحث باسم الزبون أو الهاتف أو رقم الطلب"><select id="orderStatusFilter"><option value="all">كل الحالات</option><option value="new">جديدة</option><option value="processing">قيد المعالجة</option><option value="ready">جاهزة</option><option value="delivered">تم التسليم</option><option value="cancelled">ملغاة</option></select><button class="btn btn-light" id="refreshOrdersBtn" type="button">تحديث</button></div><div id="adminOrders">سيتم تحميل الطلبيات بعد تسجيل الدخول.</div></section>
+<section class="admin-panel" id="addOrderPanel"><h3>إضافة طلبية يدوية</h3><div class="admin-form-grid">
+<div class="field"><label for="manualCustomer">اسم الزبون</label><input id="manualCustomer" autocomplete="name"></div>
+<div class="field"><label for="manualPhone">رقم الهاتف</label><input id="manualPhone" type="tel" inputmode="tel"></div>
+<div class="field"><label for="manualCity">الولاية / البلدية</label><input id="manualCity"></div>
+<div class="field"><label for="manualAddress">العنوان</label><input id="manualAddress"></div>
+<div class="field"><label for="manualProduct">اسم المنتج / تفاصيل الطلب</label><input id="manualProduct"></div>
+<div class="field"><label for="manualQty">الكمية</label><input id="manualQty" type="number" min="1" value="1"></div>
+<div class="field"><label for="manualPrice">سعر القطعة (دج)</label><input id="manualPrice" type="number" min="0" value="0"></div>
+<div class="field"><label for="manualTotal">المجموع (دج)</label><input id="manualTotal" type="number" min="0" value="0"></div>
+</div><div class="field"><label for="manualNote">ملاحظة</label><input id="manualNote"></div><button class="btn btn-gold" id="saveManualOrderBtn" type="button">حفظ الطلبية</button></section>
+<section class="admin-panel" id="adminsPanel"><h3>إدارة المديرين</h3><p style="font-size:13px;color:#737c78">هذه الخاصية للمدير الرئيسي فقط. أنشئ حساب المدير الجديد أولاً في Supabase Authentication ثم أدخل UID والبريد الإلكتروني هنا.</p><div class="field"><label for="newAdminEmail">البريد الإلكتروني للمدير الجديد</label><input id="newAdminEmail" type="email" placeholder="manager@example.com" dir="ltr"></div><div class="field"><label for="newAdminUid">User UID من Supabase Auth</label><input id="newAdminUid" type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" dir="ltr"></div><button class="btn btn-gold" id="addAdminBtn" type="button">إضافة المدير</button><hr><h3>المديرون الحاليون</h3><div id="adminsList">اضغط تحديث القائمة.</div><button class="btn btn-light" id="refreshAdminsBtn" type="button">تحديث القائمة</button></section>
+<section class="admin-panel" id="fabricsPanel"><h3>🧵 مخزن الأقمشة / Stock Tissus</h3>
+<p style="font-size:13px;color:#737c78">هذا القسم خاص بالمديرين. أضف اسم القماش ولونه ليظهرا تلقائياً في قائمة اختيار القماش عند إضافة منتج.</p>
+<div class="admin-form-grid"><div class="field"><label for="fabricName">اسم القماش / Nom du tissu</label><input id="fabricName" maxlength="100" placeholder="مثال: مخمل"></div><div class="field"><label for="fabricColor">اللون / Couleur</label><input id="fabricColor" maxlength="70" placeholder="مثال: بيج"></div><div class="field"><label for="fabricStock">الكمية المتوفرة (بالمتر)</label><input id="fabricStock" type="number" min="0" step="0.01" value="0" inputmode="decimal"></div></div>
+<div class="modal-actions"><button class="btn btn-gold" id="saveFabricBtn" type="button" onclick="saveFabric()">إضافة القماش</button><button class="btn btn-light" type="button" onclick="clearFabricForm()">إلغاء التعديل</button><button class="btn btn-light" type="button" onclick="loadAdminFabrics()">↻ تحديث</button></div>
+<div id="adminFabrics" style="margin-top:15px">يتم تحميل مخزن الأقمشة بعد دخول المدير.</div></section>
+<section class="admin-panel" id="productsPanel"><h3>إضافة / تعديل المنتجات</h3>
+<div class="field"><label for="pName">اسم المنتج بالعربية</label><input id="pName"></div>
+<div class="field"><label for="pNameFr">اسم المنتج بالفرنسية</label><input id="pNameFr"></div>
+<div class="field"><label for="pDesc">الوصف بالعربية</label><input id="pDesc"></div>
+<div class="field"><label for="pDescFr">الوصف بالفرنسية</label><input id="pDescFr"></div>
+<div class="field"><label for="pCategory">القسم</label><select id="pCategory"><option value="sofa">أرائك / Canapés</option><option value="corner">أرائك زاوية / Canapés d’angle</option><option value="chair">كراسي / Chaises</option><option value="bedroom">غرف النوم / Chambres</option><option value="dining">طاولات الطعام / Salle à manger</option><option value="decor">ديكور وتخزين / Déco & rangement</option></select></div>
+<div class="field"><label for="pFabric">القماش / Tissu</label><select id="pFabric"><option value="">— اختر القماش واللون —</option></select><small>تُحدّث هذه القائمة تلقائياً من مخزن الأقمشة.</small></div><div class="field"><label for="pFabricQuantity">كمية القماش اللازمة للمنتج (متر)</label><input id="pFabricQuantity" type="number" min="0" step="0.01" value="0" inputmode="decimal"><small>عدد الأمتار اللازمة لصناعة قطعة واحدة من هذا المنتج.</small></div>
+<div class="field"><label for="pPrice">السعر بالدينار الجزائري</label><input id="pPrice" type="number" min="0"></div>
+<div class="field"><label for="pStock">الكمية المتوفرة للبيع</label><input id="pStock" type="number" min="0" step="1" value="0"><small>عدد القطع المتاحة حالياً للزبائن.</small></div>
+<div class="field"><label for="pImageFile">تحميل صورة المنتج من الهاتف</label><input id="pImageFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><small>اختر صورة من معرض الهاتف أو مدير الملفات. تُرفع إلى تخزين المتجر عند حفظ المنتج.</small><img id="pImagePreview" class="image-preview" alt="معاينة صورة المنتج"></div>
+<div class="field"><label for="pImage">أو رابط صورة (اختياري)</label><input id="pImage" type="url" placeholder="https://..."></div>
+<div class="modal-actions"><button class="btn btn-gold" id="saveProductBtn">حفظ المنتج</button><button class="btn btn-light" id="clearProductBtn">منتج جديد</button></div><hr><h3>قائمة المنتجات</h3><div id="adminProducts"></div></section>
+<div class="modal-actions"><button class="btn btn-light" id="adminLogoutBtn">خروج المدير</button></div>
+</div><div class="modal-actions"><button class="btn btn-light" id="closeAdmin" data-ar="إغلاق" data-fr="Fermer">إغلاق</button></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+
+const SUPABASE_URL = 'https://rzigniuqkhylgfmgytph.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_fA0qUf013LiDQi7lRExayw_IfnjgkHw';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+let WHATSAPP='213699271542';
+let STORE_NAME='MARIMAX';
+let COMPANY_ADDRESS='';
+let INQUIRY_PHONES=[];
+let GPS_LAT='';
+let GPS_LNG='';
+let STORE_HERO_IMAGE='';
+let GLOBAL_PRODUCT_NOTE='';
+let GLOBAL_PRODUCT_NOTE_FR='';
+let uploadedHeroImageUrl='';
+const FALLBACK='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80';
+let uploadedProductImageUrl='';
+let editingFabricId=null;
+let cachedFabrics=[];
+let lang='ar', cart=[], selectedProduct=null, category='all', searchMode=false, editingId=null, productsFromDatabase=false, productSearchQuery='';
+let products=[
+{id:'demo1',cat:'sofa',nameAr:'أريكة مودرن 3 مقاعد',nameFr:'Canapé moderne 3 places',descAr:'تصميم أنيق للصالون العصري',descFr:'Design élégant pour votre salon',price:85000,img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',tagAr:'الأكثر طلباً',tagFr:'Populaire'},
+{id:'demo2',cat:'corner',nameAr:'أريكة زاوية عصرية',nameFr:'Canapé d’angle moderne',descAr:'مساحة مريحة للعائلة والضيوف',descFr:'Confort pour toute la famille',price:120000,img:'https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=800&q=80',tagAr:'اختيار مميز',tagFr:'Coup de cœur'},
+{id:'demo3',cat:'chair',nameAr:'كرسي استرخاء منفرد',nameFr:'Fauteuil de détente',descAr:'لمسة راقية لركن القراءة',descFr:'Une touche chic pour votre coin lecture',price:25000,img:'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80',tagAr:'',tagFr:''},
+{id:'demo4',cat:'bedroom',nameAr:'غرفة نوم عصرية',nameFr:'Chambre moderne',descAr:'تصميم هادئ لغرفة مريحة',descFr:'Un design apaisant pour votre chambre',price:185000,img:'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80',tagAr:'جديد',tagFr:'Nouveau'},
+{id:'demo5',cat:'dining',nameAr:'طاولة طعام عائلية',nameFr:'Table à manger familiale',descAr:'مساحة مناسبة لاجتماع العائلة',descFr:'Parfaite pour les repas en famille',price:72000,img:'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80',tagAr:'',tagFr:''},
+{id:'demo6',cat:'decor',nameAr:'طاولة جانبية أنيقة',nameFr:'Table d’appoint élégante',descAr:'تفاصيل صغيرة تصنع الفرق',descFr:'Les détails qui font la différence',price:18000,img:'https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=800&q=80',tagAr:'',tagFr:''}
+];
+function escapeHtml(value){return String(value ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function t(ar,fr){return lang==='ar'?ar:fr}
+function applyStoreBrand(){
+ const hero=document.getElementById('home');
+ if(hero){
+  const image=STORE_HERO_IMAGE||'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85';
+  hero.style.backgroundImage='linear-gradient(90deg,rgba(13,24,21,.76),rgba(13,24,21,.22)),url("'+image.replace(/["\\\\]/g,'')+'")';
+ }
+ document.querySelectorAll('.brand-name,.store-name').forEach(el=>el.textContent=STORE_NAME);document.title=STORE_NAME+' | '+t('الأثاث الذي يشبهك','Le mobilier qui vous ressemble');const desc=document.querySelector('meta[name=description]');if(desc)desc.content=STORE_NAME+' — '+t('اكتشف الأرائك والأثاث المنزلي بتصاميم عصرية واطلب عبر واتساب.','Découvrez les canapés et meubles modernes et commandez sur WhatsApp.');const phone=WHATSAPP.replace(/^213/,'0');document.querySelectorAll('.store-phone').forEach(el=>el.textContent=phone);document.querySelectorAll('[data-store-wa]').forEach(el=>el.href='https://wa.me/'+WHATSAPP);const a=document.getElementById('companyAddressPublic');if(a)a.textContent=COMPANY_ADDRESS?((lang==='ar'?'العنوان: ':'Adresse : ')+COMPANY_ADDRESS):'';const ph=document.getElementById('inquiryPhonesPublic');if(ph)ph.innerHTML=INQUIRY_PHONES.map(n=>'<div>'+ (lang==='ar'?'للاستعلام: ':'Renseignements : ')+'<a href="tel:'+escapeHtml(n.replace(/[^+0-9]/g,''))+'" dir="ltr">'+escapeHtml(n)+'</a></div>').join('');const map=document.getElementById('companyMapPublic');if(map)map.innerHTML=GPS_LAT&&GPS_LNG?'<a target="_blank" rel="noopener" href="https://www.google.com/maps?q='+encodeURIComponent(GPS_LAT+','+GPS_LNG)+'">'+(lang==='ar'?'📍 موقع الشركة على الخريطة':'📍 Emplacement sur la carte')+'</a>':'';}
+function money(n){return new Intl.NumberFormat('fr-DZ').format(Number(n)||0)+' دج'}
+function categoryName(c){return ({sofa:t('أرائك','Canapés'),corner:t('أرائك زاوية','Canapés d’angle'),chair:t('كراسي','Chaises'),bedroom:t('غرف النوم','Chambres'),dining:t('طاولات الطعام','Salle à manger'),decor:t('ديكور وتخزين','Déco & rangement')})[c]||''}
+function renderProducts(){
+ const grid=document.getElementById('productsGrid');grid.innerHTML='';
+ const q=productSearchQuery.trim().toLocaleLowerCase();
+ let list=products.filter(p=>{
+  const inCategory=category==='all'||p.cat===category;
+  const haystack=[p.nameAr,p.nameFr,p.descAr,p.descFr,categoryName(p.cat)].join(' ').toLocaleLowerCase();
+  return inCategory&&(!q||haystack.includes(q));
+ });
+ list.forEach(p=>{const card=document.createElement('article');card.className='product';card.innerHTML=`<div class="product-img"><img src="${escapeHtml(p.img||FALLBACK)}" alt="${escapeHtml(t(p.nameAr,p.nameFr))}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'"><span class="tag">${escapeHtml(categoryName(p.cat))}</span></div><div class="product-body"><h3>${escapeHtml(t(p.nameAr,p.nameFr))}</h3><p class="desc">${escapeHtml(t(p.descAr,p.descFr))}</p><div class="price-row"><span class="price">${money(p.price)}</span><small>${t('للقطعة','/ pièce')}</small></div><p class="stock-label" style="font-size:12px;color:${Number(p.stock)>0?'#26734d':'#b33'};margin:0 0 10px">${Number(p.stock)>0?t('متوفر: ','Disponible : ')+Number(p.stock):t('نفدت الكمية','Rupture de stock')}</p><div class="product-actions"><button class="btn btn-gold" ${Number(p.stock)<=0?'disabled':''} data-product-id="${escapeHtml(String(p.id))}" onclick="addToCart(this.dataset.productId)">${Number(p.stock)>0?'＋ '+t('أضف للسلة','Ajouter'):t('غير متوفر','Indisponible')}</button><button class="btn btn-detail" data-product-id="${escapeHtml(String(p.id))}" onclick="showProductDetails(this.dataset.productId)">${t('التفاصيل','Détails')} ←</button></div></div>`;grid.appendChild(card)});
+ document.getElementById('empty').style.display=list.length?'none':'block';
+ const count=document.getElementById('productCount');if(count)count.textContent=t(`${list.length} منتج` , `${list.length} produit(s)`);
+}
+function showProductDetails(id){
+ const p=products.find(x=>String(x.id)===String(id));if(!p)return;
+ const content=document.getElementById('productDetailContent');
+ content.innerHTML=`<div class="detail-layout"><img src="${escapeHtml(p.img||FALLBACK)}" alt="${escapeHtml(t(p.nameAr,p.nameFr))}" onerror="this.onerror=null;this.src='${FALLBACK}'"><div class="detail-info"><span class="eyebrow" style="color:var(--gold)">${escapeHtml(categoryName(p.cat))}</span><h2 id="productDetailTitle">${escapeHtml(t(p.nameAr,p.nameFr))}</h2><p>${escapeHtml(t(p.descAr,p.descFr)||t('تواصل معنا لمعرفة تفاصيل المنتج والألوان والمقاسات المتاحة.','Contactez-nous pour connaître les détails, couleurs et dimensions disponibles.'))}</p>${(t(GLOBAL_PRODUCT_NOTE,GLOBAL_PRODUCT_NOTE_FR)||'').trim()?`<div class="product-customer-note" style="margin:12px 0;padding:12px 14px;background:#f7f1e6;border-inline-start:4px solid var(--gold);border-radius:8px;line-height:1.8;color:var(--green);font-size:14px">${escapeHtml(t(GLOBAL_PRODUCT_NOTE,GLOBAL_PRODUCT_NOTE_FR))}</div>`:''}<div class="detail-price">${money(p.price)}</div><button class="btn btn-gold" type="button" data-product-id="${escapeHtml(String(p.id))}" onclick="addToCart(this.dataset.productId);closeProductDetails()">＋ ${t('أضف إلى السلة','Ajouter au panier')}</button><a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t('أرغب في الاستفسار عن: ','Je souhaite des informations sur : ')+t(p.nameAr,p.nameFr))}">${t('استفسر عبر واتساب','Demander sur WhatsApp')}</a></div></div>`;
+ const backdrop=document.getElementById('productDetailBackdrop');backdrop.style.display='grid';backdrop.setAttribute('aria-hidden','false');
+}
+function closeProductDetails(){const backdrop=document.getElementById('productDetailBackdrop');backdrop.style.display='none';backdrop.setAttribute('aria-hidden','true')}
+
+async function loadProductsFromSupabase(){
+ try{
+  const {data,error}=await supabaseClient.from('products').select('id,name,description,price,image_url,active,category,name_fr,description_fr,note,note_fr,stock_quantity,fabric_id,fabric_quantity').eq('active',true).order('created_at',{ascending:false});
+  if(error)throw error;
+  if(Array.isArray(data)&&data.length){
+   products=data.map(r=>({id:r.id,cat:r.category||'sofa',nameAr:r.name||'',nameFr:r.name_fr||r.name||'',descAr:r.description||'',descFr:r.description_fr||r.description||'',noteAr:r.note||'',noteFr:r.note_fr||'',price:Number(r.price)||0,stock:Number(r.stock_quantity)||0,img:r.image_url||FALLBACK,tagAr:'',tagFr:''}));
+   productsFromDatabase=true;showStoreNotice('المنتجات محمّلة من قاعدة بيانات المتجر.','Produits chargés depuis la base de données.');renderProducts();
+  }else{productsFromDatabase=true;products=[];renderProducts();showStoreNotice('قاعدة البيانات فارغة. أضف المنتجات من «إدارة المتجر».','La base est vide. Ajoutez des produits depuis « Administration ».')}
+ }catch(err){console.error('MARIMAX products load error:',err);productsFromDatabase=false;products=[];renderProducts();showStoreNotice('تعذر تحميل المنتجات من قاعدة البيانات: '+(err?.message||'خطأ اتصال')+' — راجع إعدادات SQL والصلاحيات.','Impossible de charger les produits : '+(err?.message||'erreur de connexion')+' — vérifiez SQL et les autorisations.')}
+}
+function showStoreNotice(ar,fr){const el=document.getElementById('storeDbNotice');if(el)el.textContent=t(ar,fr)}
+function applyLang(){
+ document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-ar][data-fr]').forEach(el=>{el.innerHTML=el.dataset[lang]});
+ document.getElementById('langBtn').textContent=lang==='ar'?'FR ⇄ العربية':'العربية ⇄ FR';
+ const searchInput=document.getElementById('productSearch');if(searchInput)searchInput.placeholder=t('ابحث عن أريكة أو منتج...','Rechercher un canapé ou un produit...');
+ document.getElementById('tagline').textContent=t('أثاث أنيق وراحة لكل منزل','Mobilier élégant et confort pour chaque maison');
+ document.getElementById('modalTitle').textContent=t('أضف المنتج إلى طلبك','Ajouter au panier');
+ document.getElementById('customerName').placeholder=t('الاسم الكامل','Nom complet');document.getElementById('customerCity').placeholder=t('الولاية / البلدية','Wilaya / commune');document.getElementById('customerNote').placeholder=t('اللون أو المقاس أو تفاصيل الطلب','Couleur, dimensions ou détails');
+ document.getElementById('sendOrder').textContent=t('إضافة للسلة','Ajouter au panier');document.getElementById('closeModal').textContent=t('إلغاء','Annuler');
+ document.getElementById('year').textContent=new Date().getFullYear();applyStoreBrand();renderProducts();renderCart();
+}
+function isSofaProduct(p){return ['sofa','corner'].includes(String(p.cat||p.category||'').toLowerCase())}
+function addToCart(id){const p=products.find(x=>String(x.id)===String(id));if(!p)return;const available=Number(p.stock)||0;if(available<=0){alert(t('هذا المنتج غير متوفر حالياً.','Ce produit est actuellement indisponible.'));return}const existing=cart.find(x=>String(x.id)===String(id));if(existing){if(existing.qty>=available){alert(t('لا يمكن تجاوز الكمية المتوفرة.','La quantité disponible est atteinte.'));return}existing.qty++;existing.unitFabrics=existing.unitFabrics||Array.from({length:existing.qty-1},()=>({fabricId:'',fabricName:'',fabricColor:''}));existing.unitFabrics.push({fabricId:'',fabricName:'',fabricColor:''});}else cart.push({...p,qty:1,unitFabrics:[{fabricId:'',fabricName:'',fabricColor:''}]});renderCart();document.getElementById('toast').textContent=t('تمت إضافة المنتج إلى السلة','Produit ajouté au panier');document.getElementById('toast').style.display='block';setTimeout(()=>document.getElementById('toast').style.display='none',2200)}
+async function loadCustomerFabrics(){
+ try{
+  // قراءة الأقمشة النشطة فقط بحساب الزائر (anon) أو المستخدم المسجل
+  const {data,error}=await supabaseClient
+   .from('fabrics')
+   .select('id,name,color,active,stock_quantity')
+   .eq('active',true)
+   .order('name',{ascending:true});
+  if(error)throw error;
+  cachedFabrics=Array.isArray(data)?data:[];
+  if(!cachedFabrics.length){
+   console.info('MARIMAX: no active fabrics are currently available.');
+  }
+  return true;
+ }catch(err){
+  console.error('MARIMAX customer fabrics load failed:',{message:err?.message,code:err?.code,details:err?.details,hint:err?.hint});
+  cachedFabrics=[];
+  const detail=[err?.message,err?.code].filter(Boolean).join(' (')+(err?.code?')':'');
+  alert(t('تعذر تحميل قائمة الأقمشة من Supabase. تحقق من اتصال الإنترنت وصلاحية قراءة الأقمشة النشطة. '+detail,'Impossible de charger les tissus depuis Supabase. Vérifiez la connexion et les autorisations de lecture. '+detail));
+  return false;
+ }
+}
+function changeCartFabric(id,index,fabricId){const item=cart.find(x=>String(x.id)===String(id));if(!item)return;item.unitFabrics=item.unitFabrics||Array.from({length:item.qty},()=>({fabricId:'',fabricName:'',fabricColor:''}));const f=cachedFabrics.find(x=>String(x.id)===String(fabricId));item.unitFabrics[index]={fabricId:f?f.id:'',fabricName:f?f.name:'',fabricColor:f?f.color:''};renderCart()}
+async function openCustomerCart(){await loadCustomerFabrics();renderCart();document.getElementById('cartBackdrop').style.display='grid'}
+function renderCart(){
+ const totalQty=cart.reduce((n,p)=>n+p.qty,0);
+ document.getElementById('cartCount').textContent=totalQty;
+ const floatingCount=document.getElementById('floatingCartCount');if(floatingCount)floatingCount.textContent=totalQty;
+ const count=document.getElementById('cartItemCount');if(count)count.textContent=lang==='ar'?`${totalQty} منتجات`:`${totalQty} article(s)`;
+ const box=document.getElementById('cartItems');
+ box.innerHTML=cart.length?cart.map(p=>{p.unitFabrics=p.unitFabrics||Array.from({length:p.qty},(_,i)=>i===0&&p.fabricId?({fabricId:p.fabricId,fabricName:p.fabricName||'',fabricColor:p.fabricColor||''}):({fabricId:'',fabricName:'',fabricColor:''}));while(p.unitFabrics.length<p.qty)p.unitFabrics.push({fabricId:'',fabricName:'',fabricColor:''});p.unitFabrics.length=p.qty;return `<article class="cart-item-card"><img class="cart-item-img" src="${escapeHtml(p.img||FALLBACK)}" alt="${escapeHtml(t(p.nameAr,p.nameFr))}" onerror="this.onerror=null;this.src='${FALLBACK}'"><div class="cart-item-info"><div class="cart-item-top"><div><div class="cart-item-name">${escapeHtml(t(p.nameAr,p.nameFr))}</div><div class="cart-item-unit">${money(p.price)} ${t('للقطعة','/ pièce')}</div></div><strong class="cart-item-subtotal">${money(p.price*p.qty)}</strong></div><div class="cart-item-controls"><button type="button" aria-label="${t('تقليل الكمية','Diminuer')}" data-cart-id="${escapeHtml(String(p.id))}" onclick="changeQty(this.dataset.cartId,-1)">−</button><span class="qty-value">${p.qty}</span><button type="button" aria-label="${t('زيادة الكمية','Augmenter')}" data-cart-id="${escapeHtml(String(p.id))}" onclick="changeQty(this.dataset.cartId,1)">＋</button><button class="remove-item" type="button" data-cart-id="${escapeHtml(String(p.id))}" onclick="removeCartItem(this.dataset.cartId)">✕ ${t('حذف','Supprimer')}</button></div>${isSofaProduct(p)?p.unitFabrics.map((u,i)=>`<div class="field" style="margin-top:10px"><label>${t('لون وقماش القطعة','Tissu et couleur de la pièce')} ${i+1} *</label><select style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;background:white" data-cart-id="${escapeHtml(String(p.id))}" onchange="changeCartFabric(this.dataset.cartId,${i},this.value)"><option value="">${t('اختر لون هذه القطعة','Choisir la couleur de cette pièce')}</option>${cachedFabrics.map(f=>`<option value="${escapeHtml(String(f.id))}" ${String(u.fabricId)===String(f.id)?'selected':''}>${escapeHtml(f.name)} — ${escapeHtml(f.color)} (متبقي: ${Number(f.stock_quantity)||0} متر)</option>`).join('')}</select></div>`).join(''):''}</div></article>`}).join(''):`<div class="cart-empty"><div class="cart-empty-icon">🛒</div><strong>${t('سلتك فارغة حالياً','Votre panier est vide')}</strong><p>${t('أضف المنتجات التي أعجبتك، وستظهر هنا مع السعر والكمية.','Ajoutez les articles qui vous plaisent : ils apparaîtront ici avec leur prix et quantité.')}</p></div>`;
+ document.getElementById('cartTotal').textContent=money(cart.reduce((n,p)=>n+p.price*p.qty,0));
+}
+function changeQty(id,delta){id=String(id).trim();const p=cart.find(x=>String(x.id)===id);if(!p)return;if(delta>0&&p.qty>=Number(p.stock||0)){alert(t('لا توجد كمية إضافية متاحة.','Aucun stock supplémentaire disponible.'));return}p.qty+=delta;p.unitFabrics=p.unitFabrics||[];if(delta>0)p.unitFabrics.push({fabricId:'',fabricName:'',fabricColor:''});else p.unitFabrics.pop();if(p.qty<=0)cart=cart.filter(x=>String(x.id)!==id);renderCart()}
+function removeCartItem(id){cart=cart.filter(x=>String(x.id)!==String(id));renderCart()}
+function openOrderById(button){addToCart(button.dataset.productId)}
+function closeOrder(){document.getElementById('modalBackdrop').style.display='none'}
+async function sendOrder(){if(!selectedProduct)return;addToCart(selectedProduct.id);closeOrder()}
+async function loadStoreSettings(){try{const {data,error}=await supabaseClient.from('store_settings').select('store_name,whatsapp_number,company_address,inquiry_phones,gps_lat,gps_lng,hero_image_url,global_product_note,global_product_note_fr').eq('id',1).maybeSingle();if(error)throw error;if(data){STORE_NAME=data.store_name||'MARIMAX';WHATSAPP=String(data.whatsapp_number||'213699271542').replace(/\D/g,'');COMPANY_ADDRESS=data.company_address||'';INQUIRY_PHONES=String(data.inquiry_phones||'').split(',').map(x=>x.trim()).filter(Boolean);GPS_LAT=data.gps_lat??'';GPS_LNG=data.gps_lng??'';STORE_HERO_IMAGE=data.hero_image_url||'';GLOBAL_PRODUCT_NOTE=data.global_product_note||'';GLOBAL_PRODUCT_NOTE_FR=data.global_product_note_fr||'';applyStoreBrand();}}catch(err){console.warn('Store settings not loaded:',err.message||err)}}
+async function loadAdminSettings(){await loadStoreSettings();document.getElementById('storeNameInput').value=STORE_NAME;document.getElementById('storeWhatsappInput').value=WHATSAPP;document.getElementById('companyAddressInput').value=COMPANY_ADDRESS;document.getElementById('inquiryPhonesInput').value=INQUIRY_PHONES.join(', ');document.getElementById('gpsLatInput').value=GPS_LAT;document.getElementById('gpsLngInput').value=GPS_LNG;document.getElementById('globalProductNoteInput').value=GLOBAL_PRODUCT_NOTE;document.getElementById('globalProductNoteFrInput').value=GLOBAL_PRODUCT_NOTE_FR;
+ const heroPreview=document.getElementById('heroImagePreview');
+ if(heroPreview){if(STORE_HERO_IMAGE){heroPreview.src=STORE_HERO_IMAGE;heroPreview.style.display='block';}else{heroPreview.removeAttribute('src');heroPreview.style.display='none';}}
+ document.getElementById('heroImageFile').value='';uploadedHeroImageUrl=STORE_HERO_IMAGE||'';
+ updateMapPreview();}
+function updateMapPreview(){const lat=document.getElementById('gpsLatInput')?.value.trim(),lng=document.getElementById('gpsLngInput')?.value.trim(),a=document.getElementById('previewMapBtn');if(a){a.href=lat&&lng?'https://www.google.com/maps?q='+encodeURIComponent(lat+','+lng):'#';a.style.pointerEvents=lat&&lng?'auto':'none';a.style.opacity=lat&&lng?'1':'.5';}}
+function captureCompanyGPS(){if(!navigator.geolocation){alert('المتصفح لا يدعم تحديد الموقع.');return;}const btn=document.getElementById('getGpsBtn');btn.disabled=true;btn.textContent='جارٍ تحديد الموقع...';navigator.geolocation.getCurrentPosition(pos=>{document.getElementById('gpsLatInput').value=pos.coords.latitude.toFixed(7);document.getElementById('gpsLngInput').value=pos.coords.longitude.toFixed(7);updateMapPreview();btn.disabled=false;btn.textContent='📍 تحديد موقعي GPS';},err=>{btn.disabled=false;btn.textContent='📍 تحديد موقعي GPS';alert('تعذر تحديد الموقع. اسمح للمتصفح باستخدام الموقع وتأكد من تفعيل GPS.');},{enableHighAccuracy:true,timeout:15000,maximumAge:0});}
+async function uploadSelectedHeroImage(){
+ const file=document.getElementById('heroImageFile').files?.[0];
+ if(!file)return uploadedHeroImageUrl||STORE_HERO_IMAGE||'';
+ if(!file.type.startsWith('image/'))throw new Error('الملف المختار ليس صورة.');
+ if(file.size>20*1024*1024)throw new Error('حجم الصورة أكبر من 20 ميغابايت.');
+ const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+ const path='store-hero/'+Date.now()+'-'+Math.random().toString(36).slice(2,9)+'.'+ext;
+ const {data,error}=await supabaseClient.storage.from('product-images').upload(path,file,{cacheControl:'3600',upsert:false,contentType:file.type});
+ if(error)throw new Error('تعذر رفع صورة الواجهة: '+error.message);
+ const {data:pub}=supabaseClient.storage.from('product-images').getPublicUrl(data.path);
+ uploadedHeroImageUrl=pub.publicUrl;
+ return uploadedHeroImageUrl;
+}
+async function saveStoreSettings(){
+ const name=document.getElementById('storeNameInput').value.trim(),raw=document.getElementById('storeWhatsappInput').value.trim(),number=raw.replace(/\D/g,''),address=document.getElementById('companyAddressInput').value.trim(),phones=document.getElementById('inquiryPhonesInput').value.split(',').map(x=>x.trim()).filter(Boolean).join(', '),latRaw=document.getElementById('gpsLatInput').value.trim(),lngRaw=document.getElementById('gpsLngInput').value.trim(),lat=latRaw===''?null:Number(latRaw),lng=lngRaw===''?null:Number(lngRaw);
+ if(!name){alert(t('أدخل اسم المتجر.','Saisissez le nom du magasin.'));return}
+ if(number.length<9||number.length>15){alert(t('أدخل رقم واتساب صحيحاً مع مفتاح الدولة، مثال 213699271542.','Saisissez un numéro WhatsApp valide avec indicatif pays.'));return}
+ if((latRaw!==''||lngRaw!=='')&&(!Number.isFinite(lat)||!Number.isFinite(lng)||lat < -90||lat > 90||lng < -180||lng > 180)){alert('إحداثيات GPS غير صحيحة.');return}
+ const btn=document.getElementById('saveStoreSettingsBtn');btn.disabled=true;const oldText=btn.textContent;btn.textContent='جارٍ حفظ الإعدادات...';
+ try{
+  const {data:{session}}=await supabaseClient.auth.getSession();if(!session)throw new Error(t('سجّل دخول المدير أولاً.','Connectez-vous comme administrateur.'));
+  const {data:allowed,error:roleError}=await supabaseClient.rpc('is_store_admin');if(roleError)throw roleError;if(allowed!==true)throw new Error(t('ليست لديك صلاحية المدير.','Vous n’êtes pas administrateur.'));
+  const heroImage=await uploadSelectedHeroImage();
+  const {error}=await supabaseClient.from('store_settings').upsert({id:1,store_name:name,whatsapp_number:number,company_address:address,inquiry_phones:phones,gps_lat:lat,gps_lng:lng,hero_image_url:heroImage||null,global_product_note:document.getElementById('globalProductNoteInput').value.trim(),global_product_note_fr:document.getElementById('globalProductNoteFrInput').value.trim()},{onConflict:'id'});
+  if(error)throw error;
+  STORE_NAME=name;WHATSAPP=number;COMPANY_ADDRESS=address;INQUIRY_PHONES=phones.split(',').map(x=>x.trim()).filter(Boolean);GPS_LAT=lat??'';GPS_LNG=lng??'';STORE_HERO_IMAGE=heroImage;GLOBAL_PRODUCT_NOTE=document.getElementById('globalProductNoteInput').value.trim();GLOBAL_PRODUCT_NOTE_FR=document.getElementById('globalProductNoteFrInput').value.trim();uploadedHeroImageUrl=heroImage;
+  applyStoreBrand();
+  document.getElementById('adminStatus').textContent=t('تم حفظ إعدادات المتجر بنجاح.','Paramètres du magasin enregistrés.');
+  alert('تم حفظ إعدادات المتجر وصورة الواجهة بنجاح.');
+ }catch(err){alert(t('تعذر حفظ الإعدادات: ','Impossible d’enregistrer les paramètres : ')+(err.message||String(err)));}finally{btn.disabled=false;btn.textContent=oldText;}
+}
+async function checkout(){
+ if(!cart.length){alert(t('السلة فارغة. أضف منتجاً أولاً.','Votre panier est vide.'));return}
+ const name=document.getElementById('cartName').value.trim(),phone=document.getElementById('cartPhone').value.trim(),city=document.getElementById('cartCity').value.trim(),address=document.getElementById('cartAddress').value.trim(),note=document.getElementById('cartNote').value.trim();
+ if(!name||!phone||!city){alert(t('يرجى إدخال الاسم والهاتف والولاية/البلدية.','Veuillez saisir le nom, le téléphone et la wilaya/commune.'));return}
+ const missingFabric=cart.find(p=>isSofaProduct(p)&&(p.unitFabrics||[]).length!==p.qty||(isSofaProduct(p)&&(p.unitFabrics||[]).some(u=>!u.fabricId)));if(missingFabric){alert(t('يرجى اختيار القماش واللون لكل قطعة على حدة قبل تأكيد الطلب.','Veuillez choisir le tissu et la couleur pour chaque pièce avant de confirmer.'));return}
+ const total=cart.reduce((n,p)=>n+p.price*p.qty,0),items=cart.map(p=>({product_id:String(p.id),name:t(p.nameAr,p.nameFr),unit_price:Number(p.price),quantity:p.qty,units:isSofaProduct(p)?(p.unitFabrics||[]).map((u,i)=>({piece:i+1,fabric_id:u.fabricId,fabric_name:u.fabricName,fabric_color:u.fabricColor})):[]}));
+ const msg=t('طلب جديد من متجر ','Nouvelle commande ')+STORE_NAME+'\n'+items.map(x=>`• ${x.name} × ${x.quantity} — ${money(x.unit_price*x.quantity)}${x.units.length?'\n'+x.units.map(u=>'   '+t('القطعة','Pièce')+' '+u.piece+': '+u.fabric_name+' — '+u.fabric_color).join('\n'):''}`).join('\n')+'\n'+t('المجموع التقريبي','Total estimé')+': '+money(total)+'\n'+t('الاسم','Nom')+': '+name+'\n'+t('الهاتف','Téléphone')+': '+phone+'\n'+t('الولاية/البلدية','Wilaya/commune')+': '+city+'\n'+t('العنوان','Adresse')+': '+(address||'-')+'\n'+t('ملاحظة','Note')+': '+(note||'-')+'\n\n'+t('يرجى تأكيد التوفر والسعر النهائي وموعد التسليم.','Merci de confirmer la disponibilité, le prix final et le délai de livraison.');
+ let saved=false;
+ try{const {error}=await supabaseClient.from('orders').insert({customer_name:name,phone,address:[city,address].filter(Boolean).join(' - '),items,total,status:'new'});if(error)throw error;saved=true}catch(err){console.error('Order save error:',err);alert(t('تعذر حفظ الطلبية: ','Impossible d’enregistrer la commande : ')+(err.message||''));return}
+ if(saved){document.getElementById('toast').textContent=t('تم حفظ الطلب. أكمل الإرسال عبر واتساب.','Commande enregistrée. Finalisez sur WhatsApp.');document.getElementById('toast').style.display='block';}
+ window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank','noopener');cart=[];renderCart();document.getElementById('cartBackdrop').style.display='none';
+}
+function clearProductForm(){editingId=null;uploadedProductImageUrl='';['pName','pNameFr','pDesc','pDescFr','pPrice','pStock','pImage','pImageFile','pFabricQuantity'].forEach(id=>document.getElementById(id).value='');const preview=document.getElementById('pImagePreview');if(preview){preview.src='';preview.style.display='none';}document.getElementById('pCategory').value='sofa';const fabricSelect=document.getElementById('pFabric');if(fabricSelect)fabricSelect.value='';document.getElementById('saveProductBtn').textContent=t('حفظ المنتج','Enregistrer le produit')}
+async function openAdmin(){
+ document.getElementById('adminBackdrop').style.display='grid';
+ document.getElementById('adminStatus').textContent=t('جارٍ التحقق من صلاحيات المدير...','Vérification des droits administrateur...');
+ const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
+ if(sessionError||!session){showAdminSession(null);return}
+ try{
+  const {data:allowed,error}=await supabaseClient.rpc('is_store_admin');
+  if(error||allowed!==true){
+   await supabaseClient.auth.signOut();
+   showAdminSession(null);
+   document.getElementById('adminStatus').textContent=error
+    ?t('تعذر التحقق من صلاحيات المدير: ','Vérification admin impossible : ')+error.message
+    :t('هذا الحساب غير مسجل كمدير للمتجر.','Ce compte n’est pas autorisé comme administrateur.');
+   return;
+  }
+  showAdminSession(session);
+ }catch(err){
+  await supabaseClient.auth.signOut();
+  showAdminSession(null);
+  document.getElementById('adminStatus').textContent=t('حدث خطأ أثناء التحقق: ','Erreur de vérification : ')+(err?.message||String(err));
+ }
+}
+async function showAdminSession(session){document.getElementById('adminLogin').style.display=session?'none':'block';document.getElementById('adminEditor').style.display=session?'block':'none';document.getElementById('adminStatus').textContent=session?t('تم تسجيل الدخول. إدارة المتجر متاحة.','Connecté. Administration disponible.') :t('سجّل الدخول بحساب المدير الذي أنشأته في Supabase Auth.','Connectez-vous avec le compte administrateur créé dans Supabase Auth.');if(session){showAdminPanel('dashboardPanel');await Promise.all([loadAdminProducts(),loadAdminOrders(),loadAdminSettings(),loadAdminFabrics()]);await refreshAdminManagementAccess();renderDashboard()}}
+async function refreshAdminManagementAccess(){const tab=document.getElementById('adminsTab');const box=document.getElementById('adminsList');/* إظهار التبويب داخل لوحة المدير؛ صلاحية تنفيذ العمليات تبقى محمية من قاعدة البيانات عبر RPC/RLS */tab.style.display='';try{const {data,error}=await supabaseClient.rpc('list_store_admins');if(error){if(box)box.textContent='تعذر تحميل قائمة المديرين: '+error.message+' — تحقق من صلاحية الدالة list_store_admins.';return;}renderAdminsList(data||[]);}catch(e){if(box)box.textContent='تعذر تحميل قائمة المديرين: '+(e?.message||String(e));}}
+function renderAdminsList(rows){const box=document.getElementById('adminsList');if(!box)return;box.innerHTML=rows.map(a=>`<div class="admin-row"><span>${escapeHtml(a.email||'بريد غير مسجل')}<br><small dir="ltr">${escapeHtml(a.uid)}</small> ${a.is_primary?' — المدير الرئيسي':''}</span>${a.is_primary?'':'<button class="delete" onclick="removeStoreAdmin(\''+a.uid+'\')">حذف</button>'}</div>`).join('')||'لا يوجد مديرون.'}
+async function loadAdminsList(){const {data,error}=await supabaseClient.rpc('list_store_admins');if(error){alert('تعذر تحميل المديرين: '+error.message);return;}renderAdminsList(data||[])}
+async function addStoreAdmin(){const email=document.getElementById('newAdminEmail').value.trim(),uid=document.getElementById('newAdminUid').value.trim();if(!email||!uid){alert('أدخل البريد الإلكتروني وUser UID.');return;}const {error}=await supabaseClient.rpc('add_store_admin',{p_uid:uid,p_email:email});if(error){alert('تعذرت إضافة المدير: '+error.message);return;}document.getElementById('newAdminEmail').value='';document.getElementById('newAdminUid').value='';alert('تمت إضافة المدير بنجاح.');await loadAdminsList()}
+async function removeStoreAdmin(uid){if(!confirm('هل تريد حذف صلاحية هذا المدير؟'))return;const {error}=await supabaseClient.rpc('remove_store_admin',{p_uid:uid});if(error){alert('تعذر حذف المدير: '+error.message);return;}await loadAdminsList();}
+async function adminLogin(){const email=document.getElementById('adminEmail').value.trim(),password=document.getElementById('adminPassword').value;if(!email||!password){alert(t('أدخل البريد وكلمة المرور.','Saisissez l’e-mail et le mot de passe.'));return}const btn=document.getElementById('adminLoginBtn');btn.disabled=true;btn.textContent=t('جارٍ التحقق...','Vérification...');try{const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});if(error){document.getElementById('adminStatus').textContent=t('فشل تسجيل الدخول: ','Connexion échouée : ')+error.message;return}const {data:allowed,error:roleError}=await supabaseClient.rpc('is_store_admin');if(roleError){await supabaseClient.auth.signOut();document.getElementById('adminStatus').textContent=t('تم التحقق من الحساب لكن إعداد صلاحيات المدير ناقص: ','Compte connecté, mais configuration admin incomplète : ')+roleError.message;return}if(allowed!==true){await supabaseClient.auth.signOut();document.getElementById('adminStatus').textContent=t('الحساب صحيح لكنه غير مضاف كمدير. نفّذ كود SQL المرفق لإضافة UID.','Compte valide mais non administrateur. Exécutez le SQL fourni pour ajouter son UID.');return}showAdminSession(data.session)}catch(err){document.getElementById('adminStatus').textContent=t('حدث خطأ: ','Erreur : ')+(err?.message||String(err))}finally{btn.disabled=false;btn.textContent=t('دخول المدير','Connexion admin')}}
+const ORDER_STATUS={new:{ar:'جديدة',fr:'Nouvelle'},processing:{ar:'قيد المعالجة',fr:'En traitement'},ready:{ar:'جاهزة',fr:'Prête'},delivered:{ar:'تم التسليم',fr:'Livrée'},cancelled:{ar:'ملغاة',fr:'Annulée'}};
+let cachedOrders=[];
+let cachedProducts=[];
+function orderStatusLabel(status){const x=ORDER_STATUS[status]||ORDER_STATUS.new;return t(x.ar,x.fr)}
+function renderAdminOrders(){
+ const box=document.getElementById('adminOrders');if(!box)return;
+ const q=(document.getElementById('orderSearch')?.value||'').trim().toLowerCase();
+ const filter=document.getElementById('orderStatusFilter')?.value||'all';
+ const rows=cachedOrders.filter(o=>{
+  const hay=[o.id,o.customer_name,o.phone,o.address].join(' ').toLowerCase();
+  return (!q||hay.includes(q))&&(filter==='all'||(o.status||'new')===filter);
+ });
+ if(!rows.length){box.textContent=t('لا توجد طلبيات مطابقة.','Aucune commande correspondante.');return;}
+ box.innerHTML=rows.map(o=>{
+  const items=Array.isArray(o.items)?o.items.map(it=>`${escapeHtml(it.name||it.product_name||'منتج')} × ${Number(it.quantity||it.qty||1)} — ${money(Number(it.unit_price||it.price||0)*Number(it.quantity||it.qty||1))}`).join('<br>'):escapeHtml(JSON.stringify(o.items||{}));
+  const date=o.created_at?new Date(o.created_at).toLocaleString(lang==='ar'?'ar-DZ':'fr-DZ'):'—';
+  const status=o.status||'new';
+  return `<article class="order-card"><div class="order-head"><span>${escapeHtml(o.customer_name||'—')}</span><span>${money(o.total)}</span></div><div class="order-meta">${t('الهاتف','Téléphone')}: <b dir="ltr">${escapeHtml(o.phone||'—')}</b><br>${t('العنوان','Adresse')}: ${escapeHtml(o.address||'—')}<br>${t('تاريخ الطلب','Date')}: ${escapeHtml(date)}<br>${t('رقم الطلب','N° commande')}: <span dir="ltr">${escapeHtml(String(o.id))}</span></div><div class="order-items">${items||t('تفاصيل المنتجات غير متاحة','Détails indisponibles')}</div><div class="order-tools"><label>${t('حالة الطلب','Statut')}: <select aria-label="${t('حالة الطلب','Statut')}" onchange="updateOrderStatus('${String(o.id).replace(/'/g,'')}',this.value)"><option value="new" ${status==='new'?'selected':''}>${t('جديدة','Nouvelle')}</option><option value="processing" ${status==='processing'?'selected':''}>${t('قيد المعالجة','En traitement')}</option><option value="ready" ${status==='ready'?'selected':''}>${t('جاهزة','Prête')}</option><option value="delivered" ${status==='delivered'?'selected':''}>${t('تم التسليم','Livrée')}</option><option value="cancelled" ${status==='cancelled'?'selected':''}>${t('ملغاة','Annulée')}</option></select></label><button class="btn btn-gold" type="button" onclick="printOrder('${String(o.id).replace(/'/g,'')}')">${t('طباعة الفاتورة','Imprimer la facture')}</button></div></article>`;
+ }).join('');
+}
+function printOrder(id){
+ const o=cachedOrders.find(x=>String(x.id)===String(id));
+ if(!o){alert(t('تعذر العثور على الطلبية.','Commande introuvable.'));return;}
+ const itemRows=Array.isArray(o.items)?o.items.map((it,i)=>{
+  const name=it.name||it.product_name||it.title||t('منتج','Produit');
+  const qty=Number(it.quantity||it.qty||1);
+  const unit=Number(it.unit_price||it.price||0);
+  return `<tr><td>${i+1}</td><td>${escapeHtml(name)}</td><td>${qty}</td><td>${money(unit)}</td><td>${money(unit*qty)}</td></tr>`;
+ }).join(''):`<tr><td colspan="5">${escapeHtml(JSON.stringify(o.items||{}))}</td></tr>`;
+ const created=o.created_at?new Date(o.created_at).toLocaleString(lang==='ar'?'ar-DZ':'fr-DZ'):'—';
+ const invoiceWindow=window.open('','_blank','width=850,height=700');
+ if(!invoiceWindow){alert(t('يرجى السماح بالنوافذ المنبثقة لطباعة الفاتورة.','Autorisez les fenêtres pop-up pour imprimer la facture.'));return;}
+ const title=t('فاتورة طلبية','Facture de commande');
+ invoiceWindow.document.open();
+ invoiceWindow.document.write(`<!doctype html><html lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} ${escapeHtml(String(o.id))}</title><style>*{box-sizing:border-box}body{font-family:Tahoma,Arial,sans-serif;color:#26352f;margin:0;padding:28px;background:#fff}.sheet{max-width:800px;margin:auto}.head{display:flex;justify-content:space-between;gap:20px;border-bottom:3px solid #174b40;padding-bottom:18px}.brand{font-size:27px;font-weight:bold;color:#174b40}.muted{color:#68766f;font-size:13px;line-height:1.8}.invoice{font-size:24px;font-weight:bold;color:#b58b4b;margin:20px 0}.details{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#f6f5f1;padding:15px;border-radius:9px;margin:16px 0}.details div{line-height:1.9;font-size:14px}table{width:100%;border-collapse:collapse;margin-top:18px}th,td{border:1px solid #d9dfda;padding:11px;text-align:start;font-size:13px}th{background:#174b40;color:white}.total{margin:18px 0 0 auto;width:min(300px,100%);padding:14px;background:#f6f5f1;border-radius:8px;font-size:18px;font-weight:bold}.foot{margin-top:35px;border-top:1px solid #ddd;padding-top:12px;text-align:center;color:#68766f;font-size:12px}@media print{body{padding:0}.sheet{max-width:none}.no-print{display:none!important}}@page{size:A4;margin:14mm}</style></head><body><main class="sheet"><header class="head"><div><div class="brand">${escapeHtml(STORE_NAME)}</div><div class="muted">${escapeHtml(t('فاتورة بيع','Facture de vente'))}</div></div><div class="muted">${escapeHtml(title)}<br>${escapeHtml(t('رقم الطلبية','N° commande'))}: ${escapeHtml(String(o.id))}<br>${escapeHtml(created)}</div></header><div class="invoice">${escapeHtml(title)}</div><section class="details"><div><b>${escapeHtml(t('اسم الزبون','Client'))}:</b> ${escapeHtml(o.customer_name||'—')}<br><b>${escapeHtml(t('الهاتف','Téléphone'))}:</b> ${escapeHtml(o.phone||'—')}</div><div><b>${escapeHtml(t('العنوان','Adresse'))}:</b> ${escapeHtml(o.address||'—')}<br><b>${escapeHtml(t('حالة الطلب','Statut'))}:</b> ${escapeHtml(orderStatusLabel(o.status||'new'))}</div></section><table><thead><tr><th>#</th><th>${escapeHtml(t('المنتج','Produit'))}</th><th>${escapeHtml(t('الكمية','Qté'))}</th><th>${escapeHtml(t('سعر الوحدة','Prix unitaire'))}</th><th>${escapeHtml(t('المجموع','Total'))}</th></tr></thead><tbody>${itemRows}</tbody></table><div class="total">${escapeHtml(t('المبلغ الإجمالي','Total à payer'))}: ${money(o.total)}</div><div class="foot">${escapeHtml(STORE_NAME)} — ${escapeHtml(t('شكراً لثقتكم بنا','Merci pour votre confiance'))}</div><div class="no-print" style="text-align:center;margin-top:22px"><button onclick="window.print()" style="padding:12px 25px;background:#174b40;color:white;border:0;border-radius:7px;font-size:16px">${escapeHtml(t('طباعة / حفظ PDF','Imprimer / Enregistrer PDF'))}</button></div></main><script>window.onload=()=>setTimeout(()=>window.print(),350)<\/script></body></html>`);
+ invoiceWindow.document.close();
+}
+
+async function loadAdminOrders(){
+ const box=document.getElementById('adminOrders');if(!box)return;box.textContent=t('جارٍ تحميل الطلبيات...','Chargement des commandes...');
+ try{const {data,error}=await supabaseClient.from('orders').select('id,customer_name,phone,address,items,total,status,created_at').order('created_at',{ascending:false});if(error)throw error;cachedOrders=data||[];renderAdminOrders();renderDashboard();}
+ catch(err){console.error('MARIMAX orders load error:',err);box.textContent=t('تعذر تحميل الطلبيات: ','Impossible de charger les commandes : ')+(err?.message||String(err));}
+}
+async function updateOrderStatus(id,status){
+ id=String(id).trim();if(!ORDER_STATUS[status])return;
+ const current=cachedOrders.find(o=>String(o.id)===id);if(!current)return;
+ try{
+  if(status==='processing'){
+   const {data,error}=await supabaseClient.rpc('confirm_order_and_deduct_fabric',{p_order_id:id});
+   if(error)throw error;
+   if(data && data.success===false)throw new Error(data.message||'لم تنجح عملية الخصم.');
+   // Refresh the database-backed stock views after a successful confirmation.
+   await Promise.all([loadAdminProducts(),loadAdminFabrics(),loadAdminOrders()]);
+   document.getElementById('adminStatus').textContent=t('تم تأكيد الطلبية وتحديث مخزون المنتجات والأقمشة من قاعدة البيانات.','Commande confirmée et stocks des produits et tissus actualisés depuis la base de données.');
+  }else{
+   const {error}=await supabaseClient.from('orders').update({status}).eq('id',id);if(error)throw error;
+   const item=cachedOrders.find(o=>String(o.id)===id);if(item)item.status=status;renderAdminOrders();document.getElementById('adminStatus').textContent=t('تم تحديث حالة الطلبية بنجاح.','Statut de la commande mis à jour.');
+  }
+ }catch(err){alert(t('تعذر تأكيد الطلبية أو تحديث حالتها: ','Impossible de confirmer la commande ou de modifier son statut : ')+(err?.message||String(err)));await loadAdminOrders();}
+}
+function dashboardMoney(v){return Number(v||0).toLocaleString(lang==='ar'?'ar-DZ':'fr-DZ',{maximumFractionDigits:0})+' دج'}
+function refreshDashboard(){return Promise.all([loadAdminOrders(),loadAdminProducts()]).then(renderDashboard)}
+function renderDashboard(){
+ const orders=cachedOrders||[],products=cachedProducts||[];
+ const count=s=>orders.filter(o=>(o.status||'new')===s).length;
+ const delivered=orders.filter(o=>(o.status||'new')==='delivered');
+ const sum=arr=>arr.reduce((n,o)=>n+Number(o.total||0),0);
+ const now=new Date(),monthStart=new Date(now.getFullYear(),now.getMonth(),1);
+ const monthDelivered=delivered.filter(o=>o.created_at&&new Date(o.created_at)>=monthStart);
+ const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+ set('dashRevenue',dashboardMoney(sum(delivered)));set('dashMonthRevenue',dashboardMoney(sum(monthDelivered)));
+ set('dashOrders',orders.length.toLocaleString());set('dashProducts',products.length.toLocaleString());
+ set('dashNew',count('new').toLocaleString());set('dashProcessing',count('processing').toLocaleString());set('dashReady',count('ready').toLocaleString());set('dashDelivered',count('delivered').toLocaleString());
+ const days=[];for(let i=6;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-i);days.push(d)}
+ const vals=days.map(d=>{const next=new Date(d);next.setDate(next.getDate()+1);return sum(delivered.filter(o=>{if(!o.created_at)return false;const x=new Date(o.created_at);return x>=d&&x<next}))});
+ const max=Math.max(1,...vals);const chart=document.getElementById('dashSalesChart');if(chart)chart.innerHTML=days.map((d,i)=>`<div class="dash-bar-col"><span class="dash-bar-value">${vals[i]?Math.round(vals[i]/1000)+'k':''}</span><div class="dash-bar" style="height:${Math.max(3,vals[i]/max*112)}px" title="${dashboardMoney(vals[i])}"></div><span class="dash-bar-label">${d.toLocaleDateString(lang==='ar'?'ar-DZ':'fr-DZ',{weekday:'short'})}</span></div>`).join('');
+ const rank={};orders.forEach(o=>{if(!Array.isArray(o.items))return;o.items.forEach(it=>{const name=String(it.name||it.product_name||it.title||'منتج');const qty=Number(it.quantity||it.qty||1);rank[name]=(rank[name]||0)+qty})});
+ const top=Object.entries(rank).sort((a,b)=>b[1]-a[1]).slice(0,5);const rankBox=document.getElementById('dashTopProducts');if(rankBox)rankBox.innerHTML=top.length?top.map(([name,qty],i)=>`<div class="dash-rank"><span>${i+1}. ${escapeHtml(name)}</span><b>${qty} طلب</b></div>`).join(''):'<span class="dash-sub">لا توجد بيانات منتجات داخل الطلبيات بعد.</span>';
+}
+function clearFabricForm(){editingFabricId=null;document.getElementById('fabricName').value='';document.getElementById('fabricColor').value='';document.getElementById('fabricStock').value='0';document.getElementById('saveFabricBtn').textContent='إضافة القماش'}
+async function loadAdminFabrics(){
+ const box=document.getElementById('adminFabrics');if(!box)return;box.textContent='جارٍ تحميل الأقمشة...';
+ try{const {data,error}=await supabaseClient.from('fabrics').select('id,name,color,active,stock_quantity').order('name',{ascending:true});if(error)throw error;cachedFabrics=data||[];renderAdminFabrics();populateFabricSelect();}
+ catch(err){box.textContent='تعذر تحميل مخزن الأقمشة: '+(err?.message||String(err))+' — تحقق من تنفيذ SQL وإنشاء جدول fabrics.';console.error('MARIMAX fabrics load error:',err)}
+}
+function renderAdminFabrics(){const box=document.getElementById('adminFabrics');if(!box)return;box.innerHTML=cachedFabrics.map(f=>`<div class="admin-row"><span><b>${escapeHtml(f.name)}</b> — ${escapeHtml(f.color)} | المتوفر: <b>${Number(f.stock_quantity)||0}</b> متر ${f.active?'':'(غير نشط)'}</span><span><button class="edit" type="button" onclick="editFabric('${f.id}')">✎ تعديل</button><button class="delete" type="button" onclick="deleteFabric('${f.id}')">حذف</button></span></div>`).join('')||'مخزن الأقمشة فارغ حالياً.'}
+function populateFabricSelect(){const sel=document.getElementById('pFabric');if(!sel)return;const selected=sel.value;sel.innerHTML='<option value="">— بدون قماش محدد —</option>'+cachedFabrics.filter(f=>f.active).map(f=>`<option value="${escapeHtml(f.id)}">${escapeHtml(f.name)} — ${escapeHtml(f.color)} (متبقي: ${Number(f.stock_quantity)||0} متر)</option>`).join('');if(cachedFabrics.some(f=>f.id===selected&&f.active))sel.value=selected}
+async function saveFabric(){
+ const name=document.getElementById('fabricName').value.trim(),color=document.getElementById('fabricColor').value.trim(),stock_quantity=Number(document.getElementById('fabricStock').value);if(!name||!color){alert('أدخل اسم القماش واللون.');return}if(!Number.isFinite(stock_quantity)||stock_quantity<0){alert('أدخل كمية صحيحة بالمتر (يمكن استعمال الكسور مثل 8.5).');return}
+ const btn=document.getElementById('saveFabricBtn');btn.disabled=true;
+ try{const wasEditing=!!editingFabricId;const payload={name,color,stock_quantity,active:true};const result=editingFabricId?await supabaseClient.from('fabrics').update(payload).eq('id',editingFabricId):await supabaseClient.from('fabrics').insert(payload);if(result.error)throw result.error;clearFabricForm();await loadAdminFabrics();alert(wasEditing?'تم تحديث القماش.':'تمت إضافة القماش إلى المخزن.');}
+ catch(err){alert('تعذر حفظ القماش: '+(err?.message||String(err)))}finally{btn.disabled=false}
+}
+function editFabric(id){const f=cachedFabrics.find(x=>String(x.id)===String(id));if(!f)return;editingFabricId=id;document.getElementById('fabricName').value=f.name||'';document.getElementById('fabricColor').value=f.color||'';document.getElementById('fabricStock').value=Number(f.stock_quantity)||0;document.getElementById('saveFabricBtn').textContent='حفظ التعديل'}
+async function deleteFabric(id){const f=cachedFabrics.find(x=>String(x.id)===String(id));if(!f||!confirm('هل تريد حذف القماش «'+f.name+' — '+f.color+'»؟ إذا كان مرتبطاً بمنتج فقد تمنع قاعدة البيانات الحذف.'))return;try{const {error}=await supabaseClient.from('fabrics').delete().eq('id',id);if(error)throw error;await loadAdminFabrics();}catch(err){alert('تعذر حذف القماش: '+(err?.message||String(err))+' — إذا كان مستخدماً في منتج، عدّل المنتج أولاً أو اجعل القماش غير نشط.')}}
+async function loadAdminProducts(){const {data,error}=await supabaseClient.from('products').select('id,name,description,price,image_url,active,category,name_fr,description_fr,note,note_fr,stock_quantity,fabric_id,fabric_quantity').order('created_at',{ascending:false});if(error){document.getElementById('adminProducts').textContent=t('تعذر تحميل قائمة الإدارة: ','Chargement impossible : ')+error.message;console.error('MARIMAX admin products error:',error);return}cachedProducts=data||[];document.getElementById('adminProducts').innerHTML=(data||[]).map(p=>`<div class="admin-row"><span>${escapeHtml(p.name)} — ${money(p.price)} ${p.active?'':'(غير نشط)'} — الكمية: ${Number(p.stock_quantity)||0}</span><span><button class="edit" onclick="editProduct('${p.id}')">✎</button><button class="delete" onclick="deleteProduct('${p.id}')">✕</button></span></div>`).join('')||t('لا توجد منتجات بعد.','Aucun produit.');renderDashboard()}
+async function editProduct(id){const {data,error}=await supabaseClient.from('products').select('*').eq('id',id).single();if(error){alert(error.message);return}editingId=id;document.getElementById('pName').value=data.name||'';document.getElementById('pNameFr').value=data.name_fr||'';document.getElementById('pDesc').value=data.description||'';document.getElementById('pDescFr').value=data.description_fr||'';document.getElementById('pPrice').value=data.price||0;document.getElementById('pStock').value=Number(data.stock_quantity)||0;document.getElementById('pImage').value=data.image_url||'';uploadedProductImageUrl=data.image_url||'';const preview=document.getElementById('pImagePreview');if(preview&&data.image_url){preview.src=data.image_url;preview.style.display='block';}document.getElementById('pCategory').value=data.category||'sofa';document.getElementById('pFabric').value=data.fabric_id||'';document.getElementById('pFabricQuantity').value=Number(data.fabric_quantity)||0;document.getElementById('saveProductBtn').textContent=t('تحديث المنتج','Mettre à jour')}
+async function uploadSelectedProductImage(){
+ const file=document.getElementById('pImageFile').files?.[0];if(!file)return uploadedProductImageUrl||document.getElementById('pImage').value.trim();
+ if(!file.type.startsWith('image/'))throw new Error('الملف المختار ليس صورة.');
+ if(file.size>8*1024*1024)throw new Error('حجم الصورة أكبر من 8 ميغابايت. اختر صورة أصغر.');
+ const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+ const path='products/'+Date.now()+'-'+Math.random().toString(36).slice(2,9)+'.'+ext;
+ const {data,error}=await supabaseClient.storage.from('product-images').upload(path,file,{cacheControl:'3600',upsert:false,contentType:file.type});
+ if(error)throw new Error('تعذر رفع الصورة. تأكد من إنشاء مساحة product-images وسياسات التخزين: '+error.message);
+ const {data:pub}=supabaseClient.storage.from('product-images').getPublicUrl(data.path);
+ uploadedProductImageUrl=pub.publicUrl;document.getElementById('pImage').value=uploadedProductImageUrl;return uploadedProductImageUrl;
+}
+async function saveProduct(){
+ const btn=document.getElementById('saveProductBtn');
+ const name=document.getElementById('pName').value.trim();
+ const name_fr=document.getElementById('pNameFr').value.trim();
+ const description=document.getElementById('pDesc').value.trim();
+ const description_fr=document.getElementById('pDescFr').value.trim();
+ const rawPrice=document.getElementById('pPrice').value.trim();
+ const price=Number(rawPrice);
+ const rawStock=document.getElementById('pStock').value.trim();
+ const stock_quantity=Number(rawStock);
+ let image_url=document.getElementById('pImage').value.trim();
+ const category=document.getElementById('pCategory').value;
+ if(!name||rawPrice===''||!Number.isFinite(price)||price<0||rawStock===''||!Number.isInteger(stock_quantity)||stock_quantity<0){alert(t('أدخل اسم المنتج وسعراً صحيحاً (يمكن أن يكون صفراً).','Saisissez un nom et un prix valide (zéro est accepté).'));return}
+ if(image_url){try{const u=new URL(image_url);if(!['http:','https:'].includes(u.protocol))throw new Error();}catch(_){alert(t('رابط الصورة غير صحيح. أدخل رابطاً يبدأ بـ https://','URL image invalide. Utilisez un lien https://'));return}}
+ btn.disabled=true;const oldText=btn.textContent;btn.textContent=t('جارٍ حفظ المنتج...','Enregistrement...');
+ try{
+  const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
+  if(sessionError)throw sessionError;
+  if(!session)throw new Error(t('انتهت جلسة المدير. سجّل الدخول مجدداً.','Session expirée. Reconnectez-vous.'));
+  const {data:allowed,error:roleError}=await supabaseClient.rpc('is_store_admin');
+  if(roleError)throw new Error(t('تعذر التحقق من صلاحية المدير: ','Vérification admin impossible : ')+roleError.message);
+  if(allowed!==true)throw new Error(t('هذا الحساب ليس مديراً مخولاً بحفظ المنتجات.','Ce compte n’est pas autorisé à gérer les produits.'));
+  image_url=await uploadSelectedProductImage();
+  const fabric_id=document.getElementById('pFabric').value||null;const fabric_quantity=Number(document.getElementById('pFabricQuantity').value||0);if(!Number.isFinite(fabric_quantity)||fabric_quantity<0){throw new Error('أدخل كمية القماش بالمتر بشكل صحيح.')}const payload={name,name_fr:name_fr||name,description,description_fr:description_fr||description,price,stock_quantity,image_url:image_url||null,category,fabric_id,fabric_quantity,active:true};
+  let result;
+  if(editingId){result=await supabaseClient.from('products').update(payload).eq('id',editingId).select('id').single();}
+  else{result=await supabaseClient.from('products').insert(payload).select('id').single();}
+  if(result.error)throw result.error;
+  if(!result.data?.id)throw new Error(t('لم تؤكد قاعدة البيانات حفظ المنتج.','La base de données n’a pas confirmé l’enregistrement.'));
+  clearProductForm();
+  await loadAdminProducts();
+  await loadProductsFromSupabase();
+  document.getElementById('adminStatus').textContent=t('تم حفظ المنتج بنجاح. رقم المنتج: ','Produit enregistré. ID : ')+result.data.id;
+  alert(t('تم حفظ المنتج بنجاح وظهر في قائمة الإدارة.','Produit enregistré et ajouté à la liste d’administration.'));
+ }catch(err){
+  console.error('MARIMAX save product error:',err);
+  const message=err?.message||String(err);
+  document.getElementById('adminStatus').textContent=t('فشل حفظ المنتج: ','Échec de l’enregistrement : ')+message;
+  alert(t('تعذر حفظ المنتج الجديد. السبب: ','Impossible d’enregistrer le nouveau produit. Cause : ')+message);
+ }finally{btn.disabled=false;btn.textContent=oldText;}
+}
+async function deleteProduct(id){if(!confirm(t('هل تريد حذف المنتج؟','Supprimer ce produit ?')))return;const {error}=await supabaseClient.from('products').delete().eq('id',id);if(error){alert(error.message);return}await loadAdminProducts();await loadProductsFromSupabase()}
+function showAdminPanel(panelId){document.querySelectorAll('.admin-panel').forEach(p=>p.classList.toggle('active',p.id===panelId));document.querySelectorAll('.admin-tab').forEach(b=>b.classList.toggle('active',b.dataset.adminTab===panelId));}
+async function saveManualOrder(){
+ const name=document.getElementById('manualCustomer').value.trim(),phone=document.getElementById('manualPhone').value.trim(),city=document.getElementById('manualCity').value.trim(),address=document.getElementById('manualAddress').value.trim(),product=document.getElementById('manualProduct').value.trim(),qty=Math.max(1,Number(document.getElementById('manualQty').value)||1),price=Math.max(0,Number(document.getElementById('manualPrice').value)||0),total=Math.max(0,Number(document.getElementById('manualTotal').value)||price*qty),note=document.getElementById('manualNote').value.trim();
+ if(!name||!phone||!product){alert('أدخل اسم الزبون ورقم الهاتف وتفاصيل المنتج.');return;}
+ const btn=document.getElementById('saveManualOrderBtn');btn.disabled=true;
+ try{const {data:{session}}=await supabaseClient.auth.getSession();if(!session)throw new Error('سجّل دخول المدير أولاً.');const {data:allowed,error:roleError}=await supabaseClient.rpc('is_store_admin');if(roleError)throw roleError;if(allowed!==true)throw new Error('الحساب ليس مديراً مخولاً.');
+ const items=[{name:product,unit_price:price,quantity:qty,note}];const {error}=await supabaseClient.from('orders').insert({customer_name:name,phone,address:[city,address,note].filter(Boolean).join(' - '),items,total,status:'new'});if(error)throw error;
+ ['manualCustomer','manualPhone','manualCity','manualAddress','manualProduct','manualNote'].forEach(id=>document.getElementById(id).value='');document.getElementById('manualQty').value='1';document.getElementById('manualPrice').value='0';document.getElementById('manualTotal').value='0';alert('تمت إضافة الطلبية بنجاح.');await loadAdminOrders();showAdminPanel('ordersPanel');
+ }catch(err){alert('تعذر إضافة الطلبية: '+(err.message||String(err)));}finally{btn.disabled=false;}
+}
+document.getElementById('langBtn').addEventListener('click',()=>{lang=lang==='ar'?'fr':'ar';applyLang()});
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;category=b.dataset.cat;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderProducts()});
+document.getElementById('searchBtn').addEventListener('click',()=>{document.getElementById('products').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('productSearch').focus(),350)});
+document.getElementById('productSearch').addEventListener('input',e=>{productSearchQuery=e.target.value;renderProducts()});
+document.getElementById('clearProductSearch').addEventListener('click',()=>{document.getElementById('productSearch').value='';productSearchQuery='';renderProducts();document.getElementById('productSearch').focus()});
+document.getElementById('closeProductDetail').addEventListener('click',closeProductDetails);
+document.getElementById('productDetailBackdrop').addEventListener('click',e=>{if(e.target.id==='productDetailBackdrop')closeProductDetails()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProductDetails();document.getElementById('cartBackdrop').style.display='none';document.getElementById('modalBackdrop').style.display='none'}});
+document.getElementById('cartBtn').addEventListener('click',openCustomerCart);
+document.getElementById('floatingCartBtn').addEventListener('click',openCustomerCart);
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+document.getElementById('closeModal').addEventListener('click',closeOrder);document.getElementById('sendOrder').addEventListener('click',sendOrder);document.getElementById('modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop')closeOrder()});
+document.getElementById('closeCart').addEventListener('click',()=>document.getElementById('cartBackdrop').style.display='none');document.getElementById('checkoutBtn').addEventListener('click',checkout);document.getElementById('cartBackdrop').addEventListener('click',e=>{if(e.target.id==='cartBackdrop')e.currentTarget.style.display='none'});
+document.getElementById('saveStoreSettingsBtn').addEventListener('click',saveStoreSettings);
+document.getElementById('heroImageFile').addEventListener('change',e=>{
+ const file=e.target.files?.[0],preview=document.getElementById('heroImagePreview');
+ if(!file){return}
+ if(!file.type.startsWith('image/')){alert('اختر ملف صورة صالحاً.');e.target.value='';return}
+ if(file.size>20*1024*1024){alert('حجم الصورة أكبر من 20 ميغابايت.');e.target.value='';return}
+ preview.src=URL.createObjectURL(file);preview.style.display='block';
+});
+document.getElementById('removeHeroImageBtn').addEventListener('click',()=>{
+ document.getElementById('heroImageFile').value='';
+ uploadedHeroImageUrl='';
+ STORE_HERO_IMAGE='';
+ const preview=document.getElementById('heroImagePreview');preview.removeAttribute('src');preview.style.display='none';
+ applyStoreBrand();
+});
+document.getElementById('addAdminBtn').addEventListener('click',addStoreAdmin);document.getElementById('refreshAdminsBtn').addEventListener('click',loadAdminsList);window.removeStoreAdmin=removeStoreAdmin;
+document.getElementById('getGpsBtn').addEventListener('click',captureCompanyGPS);
+document.getElementById('gpsLatInput').addEventListener('input',updateMapPreview);document.getElementById('gpsLngInput').addEventListener('input',updateMapPreview);
+document.querySelectorAll('[data-admin-tab]').forEach(b=>b.addEventListener('click',()=>showAdminPanel(b.dataset.adminTab)));
+document.getElementById('saveManualOrderBtn').addEventListener('click',saveManualOrder);
+document.getElementById('manualPrice').addEventListener('input',()=>{const q=Math.max(1,Number(document.getElementById('manualQty').value)||1);document.getElementById('manualTotal').value=(Number(document.getElementById('manualPrice').value)||0)*q;});document.getElementById('manualQty').addEventListener('input',()=>{const q=Math.max(1,Number(document.getElementById('manualQty').value)||1);document.getElementById('manualTotal').value=(Number(document.getElementById('manualPrice').value)||0)*q;});
+document.getElementById('pImageFile').addEventListener('change',e=>{const f=e.target.files?.[0],img=document.getElementById('pImagePreview');if(!img)return;if(!f){img.removeAttribute('src');img.style.display='none';return;}if(!f.type.startsWith('image/')){alert('الملف المختار ليس صورة. اختر JPG أو PNG أو WEBP.');e.target.value='';img.removeAttribute('src');img.style.display='none';return;}if(f.size>8*1024*1024){alert('حجم الصورة أكبر من 8 ميغابايت. اختر صورة أصغر.');e.target.value='';img.removeAttribute('src');img.style.display='none';return;}img.src=URL.createObjectURL(f);img.style.display='block';});
+document.getElementById('orderSearch').addEventListener('input',renderAdminOrders);document.getElementById('orderStatusFilter').addEventListener('change',renderAdminOrders);document.getElementById('refreshOrdersBtn').addEventListener('click',loadAdminOrders);
+document.getElementById('openAdmin').addEventListener('click',openAdmin);document.getElementById('openAdminTop').addEventListener('click',openAdmin);document.getElementById('closeAdmin').addEventListener('click',()=>document.getElementById('adminBackdrop').style.display='none');document.getElementById('adminLoginBtn').addEventListener('click',adminLogin);document.getElementById('saveProductBtn').addEventListener('click',saveProduct);document.getElementById('clearProductBtn').addEventListener('click',clearProductForm);document.getElementById('adminLogoutBtn').addEventListener('click',async()=>{await supabaseClient.auth.signOut();showAdminSession(null)});
+applyLang();
+loadProductsFromSupabase();
+loadStoreSettings();
+</script>
+</body></html>
